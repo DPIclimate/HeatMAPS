@@ -1,13 +1,15 @@
 # Heatmap over/underlay for maps
 
-Used to create a 2D-matrix under/overlay for maps based on this [radial basis function](https://en.wikipedia.org/wiki/Radial_basis_function).
+Used to create a 2D-matrix under/overlay for maps based on a [radial basis function](https://en.wikipedia.org/wiki/Radial_basis_function).
 
 ![map.png](figures/gifs/clydemap.gif)
-## Installation
+## Install and run
 ```bash
 git clone https://github.com/DPIclimate/HeatMAPS
 cd HeatMAPS
 pip3 install -r requirements.txt
+cd src/
+python3 clydemap.py
 ```
 
 ## Assumptions / pitfalls / things that need improvement 
