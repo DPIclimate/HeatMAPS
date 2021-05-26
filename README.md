@@ -2,6 +2,7 @@
 
 Used to create a 2D-matrix under/overlay for maps based on this [radial basis function](https://en.wikipedia.org/wiki/Radial_basis_function).
 
+![map.png](figures/gifs/clydemap.gif)
 ## Installation
 ```bash
 git clone https://github.com/DPIclimate/HeatMAPS
