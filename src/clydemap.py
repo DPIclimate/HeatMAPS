@@ -6,6 +6,7 @@ import imageio
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import datetime
 import cartopy
 import cartopy.crs as ccrs
 from scipy.interpolate import Rbf
@@ -22,16 +23,33 @@ class ClydeData:
                 'RVYDN22IYBB4YLIV', 'C96I124C9YD0DYPR', '621ISJJ2IMY6OMNJ']
         self.jsonResults = []
         self.jsonStatus = []
-        self.nResults = 20
+        self.nResults = 2
 
 
-    def construct_request(self):
+    def construct_request(self, dateDefined = False):
         # Clear previous values and formulate async request from array of thingspeak URL's
         self.jsonResults.clear()
         self.jsonStatus.clear()
         urls = []
-        for ID, KEY in zip(self.siteIDS, self.siteKeys):
-            urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&results={}&timezone=Australia/Sydney".format(ID, KEY, self.nResults)))
+        if not(dateDefined):
+            for ID, KEY in zip(self.siteIDS, self.siteKeys):
+                urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&results={}&timezone=Australia/Sydney".format(ID, KEY, self.nResults)))
+        else:
+            validDate = False
+            while not(validDate):  
+                startDate = input("Set the start date (format: YYYY-MM-DD):")
+                endDate = input("Set the end date (format: YYYY-MM-DD):")
+                checkFormat = "%Y-%m-%d"
+                try: 
+                    datetime.datetime.strptime(startDate, checkFormat)
+                    datetime.datetime.strptime(endDate, checkFormat)
+                    validDate = True
+                except ValueError:
+                    print("Please enter a valid date string")
+
+            for ID, KEY in zip(self.siteIDS, self.siteKeys):
+                urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&start={}$end={}&timezone=Australia/Sydney".format(ID, KEY, startDate, endDate)))
+
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.gather(*urls))
         loop.close()
@@ -108,7 +126,7 @@ class ClydeMap:
         
         # Interpolation plot
         interPlot = ax.imshow(interpolation, extent=(self.long.min(), self.long.max(), self.lat.max(), self.lat.min()), 
-                              aspect='auto', cmap="bwr_r", vmin=self.values.min(), vmax=self.values.max(), zorder=1)
+                              aspect='auto', cmap="bwr_r", vmin=0, vmax=40, zorder=1)
         
         # Map plot / overlay
         mapOverlay = plt.imread("../figures/overlays/bbmap_t.png")
@@ -146,7 +164,7 @@ class ClydeMap:
 
 if __name__ == "__main__":
     data = ClydeData()
-    data.construct_request()
+    data.construct_request(True)
     dataFrame = data.parse_request()
     cMap = ClydeMap()
     salinity = cMap.get_data(dataFrame)
