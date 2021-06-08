@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
 import os
+import sys
 import json
 import imageio
 import numpy as np
@@ -23,15 +24,18 @@ class ClydeData:
                 'RVYDN22IYBB4YLIV', 'C96I124C9YD0DYPR', '621ISJJ2IMY6OMNJ']
         self.jsonResults = []
         self.jsonStatus = []
-        self.nResults = 2
+        self.nResults = 1
 
 
-    def construct_request(self, dateDefined = False):
+    def construct_request(self):
         # Clear previous values and formulate async request from array of thingspeak URL's
         self.jsonResults.clear()
         self.jsonStatus.clear()
         urls = []
-        if not(dateDefined):
+
+        dateDefined = input("Set start and end date? (y/n)")
+        if (dateDefined != "y"):
+            self.nResults = input("Set number of previous readings to convert:")
             for ID, KEY in zip(self.siteIDS, self.siteKeys):
                 urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&results={}&timezone=Australia/Sydney".format(ID, KEY, self.nResults)))
         else:
@@ -81,7 +85,6 @@ class ClydeData:
         return self.frame.sort_values(by=["Site", "Date"], ascending=[True, False])
 
 
-
 class ClydeMap:
     def __init__(self):
         self.lat = np.array([-35.7089, -35.699416, -35.694544, -35.698588, -35.69605, -35.70423, -35.703899, 
@@ -122,18 +125,18 @@ class ClydeMap:
     def generate_map(self, interpolation, nResult):
         mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
         
-        fig, ax = plt.subplots(1, 1, figsize=(12, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
+        fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
         
         # Interpolation plot
         interPlot = ax.imshow(interpolation, extent=(self.long.min(), self.long.max(), self.lat.max(), self.lat.min()), 
                               aspect='auto', cmap="bwr_r", vmin=0, vmax=40, zorder=1)
         
         # Map plot / overlay
-        mapOverlay = plt.imread("../figures/overlays/bbmap_t.png")
+        mapOverlay = plt.imread("../figures/overlays/bbmap_shadow.png")
         ax.imshow(mapOverlay, extent=mapExtent, zorder=2)
 
         # Buoy position
-        buoyPos = ax.scatter(self.long[1:-1], self.lat[1:-1], c="k", edgecolors="#edeb57", 
+        buoyPos = ax.scatter(self.long[1:-1], self.lat[1:-1], c="purple", edgecolors="orange", 
                              linewidth=2, s=120, zorder=4)
         
         # Accessory map 
@@ -142,6 +145,11 @@ class ClydeMap:
         gridLines = ax.gridlines(draw_labels=True, zorder=3)
         gridLines.xformatter = LONGITUDE_FORMATTER
         gridLines.yformatter = LATITUDE_FORMATTER
+        gridLines.right_labels = False
+        gridLines.top_labels = False
+        cBar = plt.colorbar(interPlot)
+        cBar.set_label("Salinity (g/kg)", fontsize=20)
+        ax.set_aspect('auto', adjustable=None);
         
         # Save figure
         plt.tight_layout()
@@ -164,7 +172,7 @@ class ClydeMap:
 
 if __name__ == "__main__":
     data = ClydeData()
-    data.construct_request(True)
+    data.construct_request()
     dataFrame = data.parse_request()
     cMap = ClydeMap()
     salinity = cMap.get_data(dataFrame)
@@ -172,5 +180,4 @@ if __name__ == "__main__":
         interpolation = cMap.generate_interpolation(100, 'linear', i)
         cMap.generate_map(interpolation, i)
     cMap.compile_gif()
-    #plt.show()
 
