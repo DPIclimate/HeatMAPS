@@ -41,9 +41,9 @@ class ClydeData:
         else:
             validDate = False
             while not(validDate):  
-                startDate = input("Set the start date (format: YYYY-MM-DD):")
-                endDate = input("Set the end date (format: YYYY-MM-DD):")
-                checkFormat = "%Y-%m-%d"
+                startDate = input("Set the start date (format: YYYY-MM-DD HH:MM:SS):")
+                endDate = input("Set the end date (format: YYYY-MM-DD HH:MM:SS):")
+                checkFormat = "%Y-%m-%d %H:%M:%S"
                 try: 
                     datetime.datetime.strptime(startDate, checkFormat)
                     datetime.datetime.strptime(endDate, checkFormat)
@@ -52,7 +52,7 @@ class ClydeData:
                     print("Please enter a valid date string")
 
             for ID, KEY in zip(self.siteIDS, self.siteKeys):
-                urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&start={}$end={}&timezone=Australia/Sydney".format(ID, KEY, startDate, endDate)))
+                urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&start={}&end={}&timezone=Australia/Sydney".format(ID, KEY, startDate, endDate)))
 
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.gather(*urls))
@@ -91,6 +91,9 @@ class ClydeMap:
                              -35.70753, -35.695364, -35.684953, -35.67092, -35.6697])
         self.long = np.array([150.1832, 150.178636, 150.1727, 150.168668, 150.159375, 150.14716, 150.1409484, 
                               150.13557, 150.133449, 150.125927, 150.12886, 150.1166])
+        self.mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
+        self.mapOverlay = plt.imread("../figures/overlays/bbmap_shadow.png")
+
     
     def get_data(self, dataFrame):
         self.salinity = []
@@ -101,10 +104,12 @@ class ClydeMap:
 
     def generate_interpolation(self, resolution, function, index):
         # Generate 2D interpolation
+        # Create array of values between the max and min long / latitudes
+        # Shape = resolution
         self.xInterp = np.linspace(self.long.min(), self.long.max(), num=resolution)
         self.yInterp = np.linspace(self.lat.min(), self.lat.max(), num=resolution)
+        # Convert to 2D matrix (shape = resolution x resolution)
         self.xInterp, self.yInterp = np.meshgrid(self.xInterp, self.yInterp)
-        self.xInterp, self.yInterp = self.xInterp.flatten(), self.yInterp.flatten()
 
         print("Generating interpolation for timestamp {} out of {}.".format(index + 1, len(self.salinity[0])))
 
@@ -119,21 +124,19 @@ class ClydeMap:
 
         # Radial Basis Function (RBF)
         rbfInterp = Rbf(self.long, self.lat, self.values, function=function)
-        return rbfInterp(self.xInterp, self.yInterp).reshape((resolution, resolution))
+        return rbfInterp(self.xInterp, self.yInterp)
         
     
     def generate_map(self, interpolation, nResult):
-        mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
         
         fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
         
         # Interpolation plot
         interPlot = ax.imshow(interpolation, extent=(self.long.min(), self.long.max(), self.lat.max(), self.lat.min()), 
-                              aspect='auto', cmap="bwr_r", vmin=0, vmax=40, zorder=1)
+                              aspect='auto', cmap="RdYlBu", vmin=0, vmax=40, zorder=1)
         
         # Map plot / overlay
-        mapOverlay = plt.imread("../figures/overlays/bbmap_shadow.png")
-        ax.imshow(mapOverlay, extent=mapExtent, zorder=2)
+        ax.imshow(self.mapOverlay, extent=self.mapExtent, zorder=2)
 
         # Buoy position
         buoyPos = ax.scatter(self.long[1:-1], self.lat[1:-1], c="purple", edgecolors="orange", 
@@ -141,7 +144,7 @@ class ClydeMap:
         
         # Accessory map 
         ax.set_global()
-        ax.set_extent(mapExtent)
+        ax.set_extent(self.mapExtent)
         gridLines = ax.gridlines(draw_labels=True, zorder=3)
         gridLines.xformatter = LONGITUDE_FORMATTER
         gridLines.yformatter = LATITUDE_FORMATTER
@@ -160,14 +163,13 @@ class ClydeMap:
         # Compile gif from figures
         print("Constructing gif...")
         img_dir = "../figures/imgs"
-
         imgs = []
         for fName in sorted(os.listdir(img_dir)):
             if fName.endswith('.png'):
                 kwargs = {'fps':2.0, 'quantizer': 'nq'}
                 imgs.append(imageio.imread(os.path.join(img_dir, fName)))
         imageio.mimsave('../figures/gifs/clydemap.gif', imgs, 'GIF-FI', **kwargs)
-        print("gif has been created.")
+        print("...gif has been created.")
 
 
 if __name__ == "__main__":
