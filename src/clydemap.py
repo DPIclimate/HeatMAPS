@@ -59,10 +59,10 @@ class ClydeData:
         loop.close() # Close event loop after async call is complete
 
 
-    async def request(self, urls):
+    async def request(self, url):
         # Preform async request and append connection status (e.g. 200, 400) and json values to arrays
         async with aiohttp.ClientSession() as session:
-            async with session.get(urls) as resp:
+            async with session.get(url) as resp:
                 self.jsonStatus.append(resp.status) # Connection status
                 self.jsonResults.append(await resp.text()) # JSON response
 
