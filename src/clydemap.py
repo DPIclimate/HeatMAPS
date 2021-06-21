@@ -54,17 +54,17 @@ class ClydeData:
             for ID, KEY in zip(self.siteIDS, self.siteKeys):
                 urls.append(self.request("https://api.thingspeak.com/channels/{}/feeds.json?api_key={}&start={}&end={}&timezone=Australia/Sydney".format(ID, KEY, startDate, endDate)))
 
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(asyncio.gather(*urls))
-        loop.close()
+        loop = asyncio.get_event_loop() # Create new event loop
+        loop.run_until_complete(asyncio.gather(*urls)) # Async request using array of urls
+        loop.close() # Close event loop after async call is complete
 
 
     async def request(self, urls):
         # Preform async request and append connection status (e.g. 200, 400) and json values to arrays
         async with aiohttp.ClientSession() as session:
             async with session.get(urls) as resp:
-                self.jsonStatus.append(resp.status)
-                self.jsonResults.append(await resp.text())
+                self.jsonStatus.append(resp.status) # Connection status
+                self.jsonResults.append(await resp.text()) # JSON response
 
     
     def parse_request(self, parameter="Salinity"):
