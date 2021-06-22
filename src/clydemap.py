@@ -97,9 +97,11 @@ class ClydeMap:
     
     def get_data(self, dataFrame):
         self.salinity = []
+        self.timeCaptured = []
         for buoy, timestamp in zip(dataFrame["Site"].unique(), dataFrame["Date"]):
             self.salinity.append(dataFrame.loc[dataFrame["Site"] == buoy]["Salinity"].values)
-        return self.salinity
+            self.timeCaptured.append(dataFrame.loc[dataFrame["Site"] == buoy]["Date"].values)
+        return self.salinity, self.timeCaptured
 
 
     def generate_interpolation(self, resolution, function, index):
@@ -127,7 +129,7 @@ class ClydeMap:
         return rbfInterp(self.xInterp, self.yInterp)
         
     
-    def generate_map(self, interpolation, nResult):
+    def generate_map(self, interpolation, nResult, timeCaptured):
         
         fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
         
@@ -145,6 +147,7 @@ class ClydeMap:
         # Accessory map 
         ax.set_global()
         ax.set_extent(self.mapExtent)
+        plt.text(self.long[0]+0.001, self.lat[0]-0.0015, datetime.datetime.fromisoformat(timeCaptured[0][nResult]))
         gridLines = ax.gridlines(draw_labels=True, zorder=3)
         gridLines.xformatter = LONGITUDE_FORMATTER
         gridLines.yformatter = LATITUDE_FORMATTER
@@ -164,10 +167,15 @@ class ClydeMap:
         print("Constructing gif...")
         img_dir = "../figures/imgs"
         imgs = []
-        for fName in sorted(os.listdir(img_dir)):
-            if fName.endswith('.png'):
-                kwargs = {'fps':2.0, 'quantizer': 'nq'}
-                imgs.append(imageio.imread(os.path.join(img_dir, fName)))
+
+        imgFiles = []
+        for file in os.listdir(img_dir):
+            if file.endswith('.png'):
+                imgFiles.append(file)
+        
+        for fName in sorted(imgFiles, key=lambda x: int(x.replace(".png", "")), reverse=True):
+            kwargs = {'fps':5.0, 'quantizer': 'nq'}
+            imgs.append(imageio.imread(os.path.join(img_dir, fName)))
         imageio.mimsave('../figures/gifs/clydemap.gif', imgs, 'GIF-FI', **kwargs)
         print("...gif has been created.")
 
@@ -177,9 +185,9 @@ if __name__ == "__main__":
     data.construct_request()
     dataFrame = data.parse_request()
     cMap = ClydeMap()
-    salinity = cMap.get_data(dataFrame)
+    salinity, timeCaptured = cMap.get_data(dataFrame)
     for i in range(len(salinity[0])):
         interpolation = cMap.generate_interpolation(100, 'linear', i)
-        cMap.generate_map(interpolation, i)
+        cMap.generate_map(interpolation, i, timeCaptured)
     cMap.compile_gif()
 
