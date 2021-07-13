@@ -17,10 +17,10 @@ from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 class ClydeData:
     def __init__(self):
         self.siteIDS = ['852912', '882564', '882600', '882601', '882602', 
-                '882562', '852907', '882556', '882603', '851289']
-        self.buoyNames = [1, 3, 4, 5, 8, 9, 10, 11, 12, 13]
+                '882562', '882556', '882603', '851289']
+        self.buoyNames = [1, 3, 4, 5, 8, 9, 11, 12, 13]
         self.siteKeys = ['VAHH1R8V29N77F5V', '7V8N0R6RNXAM38AY', 'H14YCHM913E9Q242', 
-                'UT0R2RHPOKMKSLBP', 'SIJW6BRY6LF2QANF', 'QQRSK8OWK5V891XE', 'T0TWZSVP10HEKE54', 
+                'UT0R2RHPOKMKSLBP', 'SIJW6BRY6LF2QANF', 'QQRSK8OWK5V891XE', 
                 'RVYDN22IYBB4YLIV', 'C96I124C9YD0DYPR', '621ISJJ2IMY6OMNJ']
         self.jsonResults = []
         self.jsonStatus = []
@@ -88,11 +88,17 @@ class ClydeData:
 class ClydeMap:
     def __init__(self):
         self.lat = np.array([-35.7089, -35.699416, -35.694544, -35.698588, -35.69605, -35.70423, -35.703899, 
-                             -35.70753, -35.695364, -35.684953, -35.67092, -35.6697])
+                             -35.70753, -35.684953, -35.67092, -35.6697])
         self.long = np.array([150.1832, 150.178636, 150.1727, 150.168668, 150.159375, 150.14716, 150.1409484, 
-                              150.13557, 150.133449, 150.125927, 150.12886, 150.1166])
+                              150.13557, 150.125927, 150.12886, 150.1166])
         self.mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
         self.mapOverlay = plt.imread("../figures/overlays/bbmap_shadow.png")
+        self.resolution = 100
+        self.xInterp = np.linspace(self.long.min(), self.long.max(), num=self.resolution)
+        self.yInterp = np.linspace(self.lat.min(), self.lat.max(), num=self.resolution)
+        # Convert to 2D matrix (shape = resolution x resolution)
+        self.xInterp, self.yInterp = np.meshgrid(self.xInterp, self.yInterp)
+
 
     
     def get_data(self, dataFrame):
@@ -107,11 +113,12 @@ class ClydeMap:
     def generate_interpolation(self, resolution, function, index):
         # Generate 2D interpolation
         # Create array of values between the max and min long / latitudes
-        # Shape = resolution
-        self.xInterp = np.linspace(self.long.min(), self.long.max(), num=resolution)
-        self.yInterp = np.linspace(self.lat.min(), self.lat.max(), num=resolution)
-        # Convert to 2D matrix (shape = resolution x resolution)
-        self.xInterp, self.yInterp = np.meshgrid(self.xInterp, self.yInterp)
+        if(resolution != self.resolution):
+            # Shape = resolution
+            self.xInterp = np.linspace(self.long.min(), self.long.max(), num=resolution)
+            self.yInterp = np.linspace(self.lat.min(), self.lat.max(), num=resolution)
+            # Convert to 2D matrix (shape = resolution x resolution)
+            self.xInterp, self.yInterp = np.meshgrid(self.xInterp, self.yInterp)
 
         print("Generating interpolation for timestamp {} out of {}.".format(index + 1, len(self.salinity[0])))
 
@@ -160,6 +167,7 @@ class ClydeMap:
         # Save figure
         plt.tight_layout()
         plt.savefig("../figures/imgs/{}.png".format(nResult), dpi=100)
+        plt.close('all')
 
 
     def compile_gif(self):
