@@ -17,10 +17,10 @@ from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 class ClydeData:
     def __init__(self):
         self.siteIDS = ['852912', '882564', '882600', '882601', '882602', 
-                '882562', '882556', '882603', '851289']
-        self.buoyNames = [1, 3, 4, 5, 8, 9, 11, 12, 13]
+                '882562', '852907', '882556', '882603', '851289']
+        self.buoyNames = [1, 3, 4, 5, 8, 9, 10, 11, 12, 13]
         self.siteKeys = ['VAHH1R8V29N77F5V', '7V8N0R6RNXAM38AY', 'H14YCHM913E9Q242', 
-                'UT0R2RHPOKMKSLBP', 'SIJW6BRY6LF2QANF', 'QQRSK8OWK5V891XE', 
+                'UT0R2RHPOKMKSLBP', 'SIJW6BRY6LF2QANF', 'QQRSK8OWK5V891XE', 'T0TWZSVP10HEKE54', 
                 'RVYDN22IYBB4YLIV', 'C96I124C9YD0DYPR', '621ISJJ2IMY6OMNJ']
         self.jsonResults = []
         self.jsonStatus = []
@@ -82,15 +82,22 @@ class ClydeData:
                         "Date": msgTime, "Salinity": salinity, "Temperature": temperature}, ignore_index=True)
             else:
                 print("Error connecting to buoy {}'s ThingSpeak channel.")
-        return self.frame.sort_values(by=["Site", "Date"], ascending=[True, False])
+
+        # Round datetimes to nearest hour
+        self.frame["Date"] = pd.to_datetime(self.frame["Date"]).dt.round("H")
+        # Drop duplicate datetimes
+        self.frame = self.frame.sort_values(by=["Site", "Date"]).drop_duplicates(subset=["Site", "Date"]).reset_index(drop=True)
+        # Fill in the gaps if there is any
+        self.frame = self.frame.interpolate(method="pad", limit=8) # Limit in hours
+        return self.frame
 
 
 class ClydeMap:
     def __init__(self):
         self.lat = np.array([-35.7089, -35.699416, -35.694544, -35.698588, -35.69605, -35.70423, -35.703899, 
-                             -35.70753, -35.684953, -35.67092, -35.6697])
+                             -35.70753, -35.695364, -35.684953, -35.67092, -35.6697])
         self.long = np.array([150.1832, 150.178636, 150.1727, 150.168668, 150.159375, 150.14716, 150.1409484, 
-                              150.13557, 150.125927, 150.12886, 150.1166])
+                              150.13557, 150.133449, 150.125927, 150.12886, 150.1166])
         self.mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
         self.mapOverlay = plt.imread("../figures/overlays/bbmap_shadow.png")
         self.resolution = 100
@@ -154,7 +161,7 @@ class ClydeMap:
         # Accessory map 
         ax.set_global()
         ax.set_extent(self.mapExtent)
-        plt.text(self.long[0]+0.001, self.lat[0]-0.0015, datetime.datetime.fromisoformat(timeCaptured[0][nResult]))
+        plt.text(self.long[0]+0.001, self.lat[0]-0.0015, timeCaptured[0][nResult])
         gridLines = ax.gridlines(draw_labels=True, zorder=3)
         gridLines.xformatter = LONGITUDE_FORMATTER
         gridLines.yformatter = LATITUDE_FORMATTER
@@ -181,7 +188,7 @@ class ClydeMap:
             if file.endswith('.png'):
                 imgFiles.append(file)
         
-        for fName in sorted(imgFiles, key=lambda x: int(x.replace(".png", "")), reverse=True):
+        for fName in sorted(imgFiles, key=lambda x: int(x.replace(".png", "")), reverse=False):
             kwargs = {'fps':5.0, 'quantizer': 'nq'}
             imgs.append(imageio.imread(os.path.join(img_dir, fName)))
         imageio.mimsave('../figures/gifs/clydemap.gif', imgs, 'GIF-FI', **kwargs)
@@ -192,6 +199,7 @@ if __name__ == "__main__":
     data = ClydeData()
     data.construct_request()
     dataFrame = data.parse_request()
+    print(dataFrame)
     cMap = ClydeMap()
     salinity, timeCaptured = cMap.get_data(dataFrame)
     for i in range(len(salinity[0])):
