@@ -1,3 +1,6 @@
 .DS_Store
 figures/imgs/*.png
-
+.swp
+*.*.swp
+*.*.*.swp
+*.egg-info
