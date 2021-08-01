@@ -4,7 +4,7 @@ with open('requirements.txt') as file:
     required = file.read().splitlines()
 
 setup(
-        name="spatial-interpolation",
+        name="spatial_interpolation",
         version="0.1",
         install_requires=required,
         packages=find_packages(),
