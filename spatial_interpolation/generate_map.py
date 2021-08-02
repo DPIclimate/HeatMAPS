@@ -1,6 +1,11 @@
 from scipy.interpolate import Rbf
+import matplotlib.pyplot as plt
+import cartopy
+import cartopy.crs as ccrs
+from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 import datetime
 import pandas as pd
+import numpy as np
 
 class Map:
     def __init__(self):
@@ -45,14 +50,37 @@ class Map:
         return self.underlayDir
 
 
-    def generate_interpolation(self, POI, dataframe, resolution=100, function='linear'):
-        xInterp = np.linspace(float(dataframe["longitude"].min()), float(dataframe["longitude"].max()), num=resolution)
-        yInterp = np.linspace(float(dataframe["latitude"].min()), float(dataframe["latitude"].max()), num=resolution)
+    def generate_map(self, POI, dataframe, extent, resolution=100, function='linear'):
+        self.extent = extent
+        longMin = float(dataframe["longitude"].min()) 
+        longMax = float(dataframe["longitude"].max())
+        latMin = float(dataframe["latitude"].min())
+        latMax = float(dataframe["latitude"].max())
+
+        xInterp = np.linspace(longMin, longMax, num=resolution)
+        yInterp = np.linspace(latMin, latMax, num=resolution)
         xInterp, yInterp = np.meshgrid(xInterp, yInterp)
 
         for time in dataframe["created_at"].unique():
+
             values = dataframe.loc[dataframe["created_at"] == time][POI].values.astype(float)
             interp = Rbf(dataframe["longitude"].unique(), dataframe["latitude"].unique(), values, function=function)
             rbf = interp(xInterp, yInterp)
-            # TODO mapping functions go here
 
+            fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
+            interpolationMap = ax.imshow(rbf, extent=(longMin, longMax, latMin, latMax), aspect="auto", cmap="RdYlBu", 
+                vmin=0, vmax=40, zorder=1)
+
+            ax.set_global()
+            ax.set_extent(self.extent)
+            gridLines = ax.gridlines(draw_labels=True, zorder=3)
+            gridLines.xformatter = LONGITUDE_FORMATTER
+            gridLines.yformatter = LATITUDE_FORMATTER
+            gridLines.right_labels = False
+            gridLines.top_labels = False
+            colourBar = plt.colorbar(interpolationMap)
+            ax.set_aspect('auto', adjustable=None)
+            
+            plt.tight_layout()
+            plt.savefig("../figures/imgs/{}.png".format(pd.to_datetime(time).strftime("%Y-%m-%d_%H-%M-%S")))
+            plt.close()

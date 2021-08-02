@@ -8,8 +8,11 @@ class Data:
     def __init__(self):
         self.response = []
         self.statusCodes = []
+        self.startdate = None
+        self.endDate = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def thingspeak_request(self, ids, keys, timezone, start=None, end=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), date=False, results=10):
+        self.endDate = end;
         urls = []
         if date:
             for ID, key in zip(ids, keys):
@@ -40,10 +43,10 @@ class Data:
             dateRange = []
             date = datetime.datetime.strptime(startDate, "%Y-%m-%d %H:%M:%S")
             dateRange.append(date)
-            while date < pd.Timestamp.now().round("30min"):
+            while date < pd.to_datetime(self.endDate, format="%Y-%m-%d %H:%M:%S").round(alignTime):
                 date += datetime.timedelta(minutes=30)
                 dateRange.append(date)
-            return dateRange # TODO need to add an end date here
+            return dateRange
 
         dateRange = date_range(start)
         combinedDf = pd.DataFrame()
@@ -97,13 +100,8 @@ class Data:
 
         # Convert to datetime (fixes interpolation error)
         combinedDf["created_at"] = pd.to_datetime(combinedDf["created_at"], utc=True).dt.tz_localize(None);
-
+ 
         # Interpolate missing values from dataset
-        combinedDf = combinedDf.interpolate(method="pad", limit=interpolateLimit)
+        combinedDf = combinedDf.interpolate(method="pad")
         return combinedDf
 
-
-if __name__ == "__main__":
-    data = Data()
-    data.thingspeak_request(["852912", "882564"], ["VAHH1R8V29N77F5V", "7V8N0R6RNXAM38AY"], "Australia/Sydney", results=5)
-    data.parse_thingspeak_request()
