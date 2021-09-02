@@ -8,16 +8,18 @@ TS_KEYS = ['VAHH1R8V29N77F5V', '7V8N0R6RNXAM38AY', 'H14YCHM913E9Q242',
         '621ISJJ2IMY6OMNJ']
 timezone = "Australia/Sydney"
 startTime = "2021-08-02 13:00:00"
+endTime =  "2021-08-02 18:00:00"
 
 dataset = pull_data.Data()
-dataset.thingspeak_request(TS_IDS, TS_KEYS, timezone, start=startTime, date=True, results=5)
+dataset.thingspeak_request(TS_IDS, TS_KEYS, timezone, start=startTime, end=endTime, date=True, results=5)
 dataframe = dataset.parse_thingspeak_request(start=startTime)
 
-print(dataframe)
+#print(dataframe)
 
 mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
 POI = "Salinity (g/Kg)"
 
 si = generate_map.Map()
+si.set_image_overlay("../figures/overlays/bbmap_dark.png")
 si.generate_map(POI, dataframe, extent=mapExtent)
 

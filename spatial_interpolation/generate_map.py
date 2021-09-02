@@ -10,12 +10,12 @@ import numpy as np
 class Map:
     def __init__(self):
         self.extent = []
-        self.overlayDir = None
-        self.underlayDir = None
+        self.overlay = None
+        self.underlay = None
         self.resolution = 100
     
 
-    def extent(self, extent):
+    def set_extent(self, extent):
         if len(extent) == 4 and isinstance(extent, list):
             self.extent = extent
         else:
@@ -24,7 +24,7 @@ class Map:
         return self.extent
 
 
-    def image_overlay_dir(self, overlay):
+    def set_image_overlay(self, overlay):
         if isinstance(overlay, str):
             if len(overlay) >= 4:
                 if overlay[-4:] != ".png":
@@ -33,11 +33,11 @@ class Map:
                 raise TypeError("Invalid image type (accepted types: .png)")
         else:
             raise TypeError("Image overlay must constist of a file directory of type string")
-        self.overlayDir = overlay
-        return self.overlayDir
+        self.overlay = plt.imread(overlay)
+        return self.overlay
 
     
-    def image_underlay_dir(self, underlay):
+    def set_image_underlay(self, underlay):
         if isinstance(underlay, str):
             if len(underlay) >= 4:
                 if underlay[-4:] != ".png":
@@ -46,33 +46,49 @@ class Map:
                 raise TypeError("Invalid image type (accepted types: .png)")
         else:
             raise TypeError("Image underlay must constist of a file directory of type string")
-        self.underlayDir = underlay 
-        return self.underlayDir
+        self.underlay = plt.imread(underlay)
+        return self.underlay
 
 
-    def generate_map(self, POI, dataframe, extent, resolution=100, function='linear'):
-        self.extent = extent
-        longMin = float(dataframe["longitude"].min()) 
-        longMax = float(dataframe["longitude"].max())
-        latMin = float(dataframe["latitude"].min())
-        latMax = float(dataframe["latitude"].max())
+    def generate_map(self, POI, dataframe, extent=None, resolution=100, function='linear'):
 
-        xInterp = np.linspace(longMin, longMax, num=resolution)
-        yInterp = np.linspace(latMin, latMax, num=resolution)
+        # No extent provided, use data from dataframe 
+        if(extent == None):
+            longMin = float(dataframe["longitude"].min()) 
+            longMax = float(dataframe["longitude"].max())
+            latMin = float(dataframe["latitude"].min())
+            latMax = float(dataframe["latitude"].max())
+            extent.append(longMin, longMax, latMin, latMax)
+        
+        # Generate interpolation 
+        xInterp = np.linspace(extent[0], extent[1], num=resolution)
+        yInterp = np.linspace(extent[2], extent[3], num=resolution)
         xInterp, yInterp = np.meshgrid(xInterp, yInterp)
 
         for time in dataframe["created_at"].unique():
 
+            # For each timestamp create an interpolation
             values = dataframe.loc[dataframe["created_at"] == time][POI].values.astype(float)
             interp = Rbf(dataframe["longitude"].unique(), dataframe["latitude"].unique(), values, function=function)
             rbf = interp(xInterp, yInterp)
 
+            # Setup plot
             fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
-            interpolationMap = ax.imshow(rbf, extent=(longMin, longMax, latMin, latMax), aspect="auto", cmap="RdYlBu", 
+
+            # Underlay is defined 
+            if(hasattr(self.underlay, 'shape')):
+                ax.imshow(self.underlay, extent=extent, zorder=0, alpha=0.5)
+
+            # Plot interpolation on map
+            interpolationMap = ax.imshow(rbf, extent=extent, aspect="auto", cmap="RdYlBu", 
                 vmin=0, vmax=40, zorder=1)
 
+            ## Overlay is defined
+            if(hasattr(self.overlay, 'shape')):
+                ax.imshow(self.overlay, extent=extent, zorder=2)
+
             ax.set_global()
-            ax.set_extent(self.extent)
+            ax.set_extent(extent)
             gridLines = ax.gridlines(draw_labels=True, zorder=3)
             gridLines.xformatter = LONGITUDE_FORMATTER
             gridLines.yformatter = LATITUDE_FORMATTER

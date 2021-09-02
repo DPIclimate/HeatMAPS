@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import datetime
 import cartopy
 import cartopy.crs as ccrs
+from cartopy.io.shapereader import Reader
+from cartopy.feature import ShapelyFeature
 from scipy.interpolate import Rbf
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 
@@ -41,8 +43,12 @@ class ClydeData:
         else:
             validDate = False
             while not(validDate):  
-                startDate = input("Set the start date (format: YYYY-MM-DD HH:MM:SS):")
-                endDate = input("Set the end date (format: YYYY-MM-DD HH:MM:SS):")
+                #startDate = input("Set the start date (format: YYYY-MM-DD HH:MM:SS):")
+                #endDate = input("Set the end date (format: YYYY-MM-DD HH:MM:SS):")
+                # Debug
+                startDate = "2021-03-20 00:00:00"
+                endDate = "2021-03-21 00:00:00"
+
                 checkFormat = "%Y-%m-%d %H:%M:%S"
                 try: 
                     datetime.datetime.strptime(startDate, checkFormat)
@@ -88,7 +94,7 @@ class ClydeData:
         # Drop duplicate datetimes
         self.frame = self.frame.sort_values(by=["Site", "Date"]).drop_duplicates(subset=["Site", "Date"]).reset_index(drop=True)
         # Fill in the gaps if there is any
-        self.frame = self.frame.interpolate(method="pad", limit=8) # Limit in hours
+        self.frame = self.frame.interpolate(method="pad", limit=48) # Limit in hours
         return self.frame
 
 
@@ -99,13 +105,12 @@ class ClydeMap:
         self.long = np.array([150.1832, 150.178636, 150.1727, 150.168668, 150.159375, 150.14716, 150.1409484, 
                               150.13557, 150.133449, 150.125927, 150.12886, 150.1166])
         self.mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
-        self.mapOverlay = plt.imread("../figures/overlays/bbmap_shadow.png")
+        self.mapOverlay = plt.imread("../figures/overlays/bbmap_dark.png")
         self.resolution = 100
         self.xInterp = np.linspace(self.long.min(), self.long.max(), num=self.resolution)
         self.yInterp = np.linspace(self.lat.min(), self.lat.max(), num=self.resolution)
         # Convert to 2D matrix (shape = resolution x resolution)
         self.xInterp, self.yInterp = np.meshgrid(self.xInterp, self.yInterp)
-
 
     
     def get_data(self, dataFrame):
@@ -145,35 +150,39 @@ class ClydeMap:
     
     def generate_map(self, interpolation, nResult, timeCaptured):
         
-        fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
-        
+        fig, ax = plt.subplots(1, 1, figsize=(5, 3), subplot_kw=dict(projection=ccrs.PlateCarree()))
+
         # Interpolation plot
         interPlot = ax.imshow(interpolation, extent=(self.long.min(), self.long.max(), self.lat.max(), self.lat.min()), 
-                              aspect='auto', cmap="RdYlBu", vmin=0, vmax=40, zorder=1)
+                              aspect='auto', cmap="RdYlGn", vmin=0, vmax=40, zorder=1)
+
+        shape_feature = ShapelyFeature(Reader("Clyde_River_LoRaWAN_Sensor_Network_Map-polygon.shp").geometries(),
+                                                ccrs.PlateCarree(), facecolor='grey', alpha=0.8)
         
         # Map plot / overlay
         ax.imshow(self.mapOverlay, extent=self.mapExtent, zorder=2)
 
+        ax.add_feature(shape_feature, zorder=3)
+
         # Buoy position
-        buoyPos = ax.scatter(self.long[1:-1], self.lat[1:-1], c="purple", edgecolors="orange", 
-                             linewidth=2, s=120, zorder=4)
+        buoyPos = ax.scatter(self.long[1:-1], self.lat[1:-1], c="#c33c39", edgecolor="w", linewidth=2, s=60, zorder=4)
         
         # Accessory map 
         ax.set_global()
         ax.set_extent(self.mapExtent)
-        plt.text(self.long[0]+0.001, self.lat[0]-0.0015, timeCaptured[0][nResult])
+        #plt.text(self.long[0]+0.001, self.lat[0]-0.0015, np.datetime_as_string(timeCaptured[0][nResult], unit="m"))
         gridLines = ax.gridlines(draw_labels=True, zorder=3)
         gridLines.xformatter = LONGITUDE_FORMATTER
         gridLines.yformatter = LATITUDE_FORMATTER
         gridLines.right_labels = False
         gridLines.top_labels = False
-        cBar = plt.colorbar(interPlot)
-        cBar.set_label("Salinity (g/kg)", fontsize=20)
+        cBar = plt.colorbar(interPlot, orientation="horizontal")
+        cBar.set_label("Salinity (g/kg)")
         ax.set_aspect('auto', adjustable=None);
         
         # Save figure
         plt.tight_layout()
-        plt.savefig("../figures/imgs/{}.png".format(nResult), dpi=100)
+        plt.savefig("../figures/imgs/{}.png".format(nResult), dpi=300)
         plt.close('all')
 
 

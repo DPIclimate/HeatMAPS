@@ -9,7 +9,8 @@ class Data:
         self.response = []
         self.statusCodes = []
         self.startdate = None
-        self.endDate = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.endDate = "2021-08-02 18:00:00" #datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 
     def thingspeak_request(self, ids, keys, timezone, start=None, end=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), date=False, results=10):
         self.endDate = end;
