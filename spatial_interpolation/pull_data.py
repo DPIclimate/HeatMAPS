@@ -93,6 +93,8 @@ class Data:
                 # Merge device dataframe into preconstructed date dataframe with N/a's to fill missing values
                 dateDf = pd.merge(dateDf, deviceDf, on="created_at", how="outer") 
 
+                dateDf = dateDf.interpolate(method="pad")
+                dateDf = dateDf.bfill(axis=0)
                 # Append to combined dataframe
                 combinedDf = combinedDf.append(dateDf)
         

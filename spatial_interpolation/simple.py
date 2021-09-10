@@ -7,14 +7,14 @@ TS_KEYS = ['VAHH1R8V29N77F5V', '7V8N0R6RNXAM38AY', 'H14YCHM913E9Q242',
         'T0TWZSVP10HEKE54', 'RVYDN22IYBB4YLIV', 'C96I124C9YD0DYPR',
         '621ISJJ2IMY6OMNJ']
 timezone = "Australia/Sydney"
-startTime = "2021-08-02 13:00:00"
-endTime =  "2021-08-02 18:00:00"
+startTime = "2021-03-19 06:00:00"
+endTime =  "2021-03-21 18:00:00"
 
 dataset = pull_data.Data()
 dataset.thingspeak_request(TS_IDS, TS_KEYS, timezone, start=startTime, end=endTime, date=True, results=5)
 dataframe = dataset.parse_thingspeak_request(start=startTime)
 
-#print(dataframe)
+print(dataframe)
 
 mapExtent = [150.1166, 150.1832, -35.7089, -35.6697]
 POI = "Salinity (g/Kg)"

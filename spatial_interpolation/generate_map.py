@@ -65,11 +65,16 @@ class Map:
         yInterp = np.linspace(extent[2], extent[3], num=resolution)
         xInterp, yInterp = np.meshgrid(xInterp, yInterp)
 
+        longitudes = dataframe["longitude"].dropna().unique()
+        latitudes = dataframe["latitude"].dropna().unique()
+
         for time in dataframe["created_at"].unique():
 
             # For each timestamp create an interpolation
             values = dataframe.loc[dataframe["created_at"] == time][POI].values.astype(float)
-            interp = Rbf(dataframe["longitude"].unique(), dataframe["latitude"].unique(), values, function=function)
+            print(values)
+            print(len(values), len(longitudes), len(latitudes))
+            interp = Rbf(longitudes, latitudes, values, function=function)
             rbf = interp(xInterp, yInterp)
 
             # Setup plot
@@ -80,7 +85,7 @@ class Map:
                 ax.imshow(self.underlay, extent=extent, zorder=0, alpha=0.5)
 
             # Plot interpolation on map
-            interpolationMap = ax.imshow(rbf, extent=extent, aspect="auto", cmap="RdYlBu", 
+            interpolationMap = ax.imshow(rbf, extent=extent, aspect="auto", cmap="RdYlGn", 
                 vmin=0, vmax=40, zorder=1)
 
             ## Overlay is defined
