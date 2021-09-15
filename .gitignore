@@ -4,3 +4,5 @@ figures/imgs/*.png
 *.*.swp
 *.*.*.swp
 *.egg-info
+.env
+mysqldb

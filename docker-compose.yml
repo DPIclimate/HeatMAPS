@@ -5,7 +5,7 @@ services:
     image: mysql:8.0.26
     restart: always
     environment:
-      MYSQL_DATABASE: heatmap
+      MYSQL_DATABASE: iot-spatial-interpolation 
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       MYSQL_ROOT_PASSWORD: admin
@@ -15,5 +15,5 @@ services:
       - ./mysqldb:/var/lib/mysql
 
 volumes:
-  heatmaps:
+  iot-spatial-interpolation:
 
