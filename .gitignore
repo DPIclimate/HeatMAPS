@@ -5,4 +5,4 @@ figures/imgs/*.png
 *.*.*.swp
 *.egg-info
 .env
-mysqldb
+db
