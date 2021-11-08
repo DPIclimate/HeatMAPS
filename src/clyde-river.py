@@ -80,31 +80,31 @@ def get_device_list():
 
 def get_latest_message(devices):
     msgs = []
-    if not os.path.exists("log/latest_values.txt") or refresh:
-        with open("log/latest_values.txt", "w") as dl:
-            for device in devices:
-                # Get the latest value from each device, ignoring dups
-                query = f"SELECT ts, msg FROM msgs WHERE devid = '{device}' AND ignore != TRUE ORDER BY UID DESC LIMIT 1;"
-                connection = postgres_connect()
-                with connection as con:
-                    with con.cursor() as cursor:
-                        cursor.execute(query)
-                        res = cursor.fetchall()
-                        for (ts, msg, ) in res:
-                            local_date = ts.astimezone(tzlocal())
-                            dl.write(device + "," + str(local_date) + "," + str(msg).replace("\'", "\"") + "\n")
-                            msgs.append([device, local_date, msg])
+    #if not os.path.exists("log/latest_values.txt") or refresh:
+    with open("log/latest_values.txt", "w") as dl:
+        for device in devices:
+            # Get the latest value from each device, ignoring dups
+            query = f"SELECT ts, msg FROM msgs WHERE devid = '{device}' AND ignore != TRUE ORDER BY UID DESC LIMIT 1;"
+            connection = postgres_connect()
+            with connection as con:
+                with con.cursor() as cursor:
+                    cursor.execute(query)
+                    res = cursor.fetchall()
+                    for (ts, msg, ) in res:
+                        local_date = ts.astimezone(tzlocal())
+                        dl.write(device + "," + str(local_date) + "," + str(msg).replace("\'", "\"") + "\n")
+                        msgs.append([device, local_date, msg])
 
-    else: 
-        # Read from txt file and get relevent values
-        with open("log/latest_values.txt", "r") as dl:
-            for line in dl:
-                strp_line = line.rstrip()
-                values = strp_line.split(",", 2)
-                device = values[0]
-                ts = datetime.strptime(values[1], "%Y-%m-%d %H:%M:%S%z")
-                msg = json.loads(values[2])
-                msgs.append([device, ts, msg])
+    #else: 
+    #    # Read from txt file and get relevent values
+    #    with open("log/latest_values.txt", "r") as dl:
+    #        for line in dl:
+    #            strp_line = line.rstrip()
+    #            values = strp_line.split(",", 2)
+    #            device = values[0]
+    #            ts = datetime.strptime(values[1], "%Y-%m-%d %H:%M:%S%z")
+    #            msg = json.loads(values[2])
+    #            msgs.append([device, ts, msg])
                 
     return msgs
 
@@ -133,7 +133,7 @@ def decoded_to_dataframe(devices):
     return df
 
 
-def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../figures/overlays/bbmap_dark.png"):
+def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../figures/overlays/bbmap_shadow.png"):
 
     # Refine df to exclude rows where lat and long = 0 (i.e. They dont exist)
     df = df.loc[df["latitude"] * df["longitude"] != 0]
@@ -159,9 +159,11 @@ def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../
     rbf_interp = Rbf(df["longitude"], df["latitude"], values, functon="linear")
     interpolation = rbf_interp(x_interp, y_interp)
 
+    plt.rcParams.update({'font.size': 18})
+
     fig, ax = plt.subplots(1, 1, figsize=(14, 8), subplot_kw=dict(projection=ccrs.PlateCarree()))
 
-    new_cmap = plt.cm.RdYlGn
+    new_cmap = plt.cm.RdYlBu
     #cm = plt.pcolormesh(np.random.randn(50, 50), cmap=new_cmap)
 
     map_interp = ax.imshow(interpolation, extent=extent, aspect="auto", cmap=new_cmap, 
@@ -173,7 +175,7 @@ def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../
                                     ccrs.PlateCarree(), facecolor='grey', alpha=0.8)
     ax.add_feature(oyster_leases, zorder=3) 
 
-    buoys = ax.scatter(df["longitude"], df["latitude"], c="#c33c39", edgecolor="w", linewidth=2, s=60, zorder=4)
+    buoys = ax.scatter(df["longitude"], df["latitude"], c="#c33c39", edgecolor="w", linewidth=2, s=80, zorder=4)
 
     ax.set_global()
     ax.set_extent(extent)
@@ -185,12 +187,12 @@ def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../
     gridLines.right_labels = False
     gridLines.top_labels = False
 
-    colourBar = plt.colorbar(map_interp, label="Salinity")
+    colourBar = plt.colorbar(map_interp, label="Salinity (g/kg)")
 
     valid_time = datetime.fromtimestamp(int(df["ts"][0] / 1000))
     plt.title(f"Generated at: {valid_time}")
     plt.tight_layout()
-    plt.savefig("../figures/imgs/salinity_latest.png")
+    plt.savefig("/var/www/html/salinity_latest.png")
     plt.close() 
 
 

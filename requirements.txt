@@ -3,5 +3,5 @@ aiohttp==3.7.4.post0
 numpy==1.20.2
 imageio==2.9.0
 matplotlib==3.4.1
-Cartopy==0.19.0.post2.dev10+g115b1ca
+Cartopy==0.20.1
 scipy==1.6.2
