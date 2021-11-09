@@ -99,8 +99,6 @@ for (var i = 0; i < msgs.length; i++) {
         if (val.hasOwnProperty("data")) {
             var eol = i < lastIdx ? "," : "";
             var s = `{"ts":${Date.parse(ts)},`
-			s += `"latitude":${lat},`
-			s += `"longitude":${lng},`
             var first = true;
             for (var z of Object.keys(val["data"])) {
                 if (first !== true) {

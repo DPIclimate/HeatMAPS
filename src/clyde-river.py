@@ -1,3 +1,4 @@
+#!/bin/env python3
 # Postgres
 import psycopg2
 import mysql.connector
@@ -6,10 +7,12 @@ from mysql.connector import connect
 # Environment
 from dotenv import load_dotenv, dotenv_values
 import os
+import sys
 
 # Setup
 from datetime import datetime, timedelta
 from dateutil.tz import tzutc, tzlocal
+import requests
 import time
 import json
 import pandas as pd
@@ -29,10 +32,12 @@ load_dotenv()
 # ---- Setup ----
 # List of decomissioned buoy devids
 decommissioned_buoys = ["clyde-salinity801", "clyde-salinity90c", "clyde-salinity502"]
+no_solar_buoys = ["clyde-salinity20b", "clyde-salinity20c"]
 
 # Set true to refresh all aspects of script
 # Useful if decom buoys has been updated or devids have changed
 refresh = False
+debug = False
 
 
 def postgres_connect():
@@ -80,31 +85,31 @@ def get_device_list():
 
 def get_latest_message(devices):
     msgs = []
-    #if not os.path.exists("log/latest_values.txt") or refresh:
-    with open("log/latest_values.txt", "w") as dl:
-        for device in devices:
-            # Get the latest value from each device, ignoring dups
-            query = f"SELECT ts, msg FROM msgs WHERE devid = '{device}' AND ignore != TRUE ORDER BY UID DESC LIMIT 1;"
-            connection = postgres_connect()
-            with connection as con:
-                with con.cursor() as cursor:
-                    cursor.execute(query)
-                    res = cursor.fetchall()
-                    for (ts, msg, ) in res:
-                        local_date = ts.astimezone(tzlocal())
-                        dl.write(device + "," + str(local_date) + "," + str(msg).replace("\'", "\"") + "\n")
-                        msgs.append([device, local_date, msg])
+    if not os.path.exists("log/latest_values.txt") or debug:
+        with open("log/latest_values.txt", "w") as dl:
+            for device in devices:
+                # Get the latest value from each device, ignoring dups
+                query = f"SELECT ts, msg FROM msgs WHERE devid = '{device}' AND ignore != TRUE ORDER BY UID DESC LIMIT 1;"
+                connection = postgres_connect()
+                with connection as con:
+                    with con.cursor() as cursor:
+                        cursor.execute(query)
+                        res = cursor.fetchall()
+                        for (ts, msg, ) in res:
+                            local_date = ts.astimezone(tzlocal())
+                            dl.write(device + "," + str(local_date) + "," + str(msg).replace("\'", "\"") + "\n")
+                            msgs.append([device, local_date, msg])
 
-    #else: 
-    #    # Read from txt file and get relevent values
-    #    with open("log/latest_values.txt", "r") as dl:
-    #        for line in dl:
-    #            strp_line = line.rstrip()
-    #            values = strp_line.split(",", 2)
-    #            device = values[0]
-    #            ts = datetime.strptime(values[1], "%Y-%m-%d %H:%M:%S%z")
-    #            msg = json.loads(values[2])
-    #            msgs.append([device, ts, msg])
+    else: 
+        # Read from txt file and get relevent values
+        with open("log/latest_values.txt", "r") as dl:
+            for line in dl:
+                strp_line = line.rstrip()
+                values = strp_line.split(",", 2)
+                device = values[0]
+                ts = datetime.strptime(values[1], "%Y-%m-%d %H:%M:%S%z")
+                msg = json.loads(values[2])
+                msgs.append([device, ts, msg])
                 
     return msgs
 
@@ -122,13 +127,46 @@ def decode_messages(msgs):
         os.system(f"node decode/decode.js decode/{decoder_name}.js ./payload.json > decode/decoded/{device}.json")
     
 
+def get_coordinates(device, application):
+    token = ""
+    if application == "salinity-ict-c4e-nosolar":
+        token = os.getenv("TTN_API_KEY_NOSOLAR")
+    else:
+        token = os.getenv("TTN_API_KEY_SOLAR")
+    url = f"https://eu1.cloud.thethings.network/api/v3/applications/{application}/devices/{device}?field_mask=locations"
+
+    req = requests.get(url, headers={
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+        })
+
+    if req.status_code == 200:
+        json_req = json.loads(req.text)
+    else:
+        return { "latitude": 0, "longitude": 0 }
+
+    user = json_req["locations"]["user"]
+
+    return {"latitude": user["latitude"], "longitude": user["longitude"]}
+
+
 def decoded_to_dataframe(devices):
     df = pd.DataFrame()
 
     for device in devices:
         with open(f"decode/decoded/{device}.json", "r") as dd:
             data = json.load(dd)
-            df = df.append(data[0], ignore_index=True)
+
+            if device in no_solar_buoys:
+                coords = get_coordinates(device, "salinity-ict-c4e-nosolar")
+            else:
+                coords = get_coordinates(device, "salinity-ict-c4e")
+
+            jsonData = data[0]
+            jsonData.update(coords)
+            df = df.append(jsonData, ignore_index=True)
+
+    print(df)
 
     return df
 
@@ -141,6 +179,7 @@ def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../
     # Exclude values where last reading was over 12 hours ago
     exclude_ts = datetime.now() - timedelta(hours=12)
     df = df[df["ts"] >= (time.mktime(exclude_ts.timetuple()) * 1000)]
+
 
     # Define the maps extent
     lng_min = 150.1166 
@@ -190,6 +229,7 @@ def dataframe_to_map(df, resolution=100, parameter="salinity", overlay_path="../
     colourBar = plt.colorbar(map_interp, label="Salinity (g/kg)")
 
     valid_time = datetime.fromtimestamp(int(df["ts"][0] / 1000))
+    print(valid_time)
     plt.title(f"Generated at: {valid_time}")
     plt.tight_layout()
     plt.savefig("/var/www/html/salinity_latest.png")
