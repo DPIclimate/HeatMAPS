@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Build and Run
+      env:
+        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v3
       with:
