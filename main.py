@@ -221,7 +221,7 @@ class Map:
             plt.title(f"Generated at: {select_df['Date'][0]}")
             plt.tight_layout()
             plt.savefig(f"{self.output_dir}/latest-{variable}.png", dpi=300)
-            log.info("Saved figure to: f"{self.output_dir}/latest-{variable}.png")
+            log.info(f"Saved figure to: {self.output_dir}/latest-{variable}.png")
 
 if __name__ == "__main__":
     log = logging.getLogger("logger")
