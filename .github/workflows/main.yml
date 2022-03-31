@@ -1,0 +1,27 @@
+name: Build, Run & Deploy
+
+on:
+  schedule:
+    - cron: "* 1 * * *" # Runs every hour
+  workflow_dispatch: 
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Python
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+        architecture: 'x64'
+        cache: 'pip'
+    - run: pip install -r requirements.txt && python main.py
+    - name: Deploy GH Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.7
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: public # The folder the action should deploy.
