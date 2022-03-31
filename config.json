@@ -1,0 +1,70 @@
+{
+	"devices": [
+		{
+			"name": "clyde-salinity20c",
+			"location": "Wray Street",
+			"harvest_area": "Moonlight",
+			"buoy_number": "1"
+		},
+		{
+			"name": "clyde-salinity501",
+			"location": "Moonlight",
+			"harvest_area": "Moonlight",
+			"buoy_number": "3"
+		},
+		{
+			"name": "clyde-salinity90d",
+			"location": "Budd Island North",
+			"harvest_area": "Moonlight",
+			"buoy_number": "4"
+		},
+		{
+			"name": "clyde-salinity90e",
+			"location": "Snapper Point",
+			"harvest_area": "Moonlight",
+			"buoy_number": "5"
+		},
+		{
+			"name": "clyde-salinity20b",
+			"location": "Rocky Point",
+			"harvest_area": "Rocky Point",
+			"buoy_number": "Fixed"
+		},
+		{
+			"name": "clyde-salinity90f",
+			"location": "Angry Man Point",
+			"harvest_area": "Rocky Point",
+			"buoy_number": "8"
+		},
+		{
+			"name": "clyde-salinity802",
+			"location": "Chinamans Point",
+			"harvest_area": "Rocky Point",
+			"buoy_number": "9"
+		},
+		{
+			"name": "clyde-salinity90g",
+			"location": "Waterfall Creek",
+			"harvest_area": "Rocky Point",
+			"buoy_number": "10"
+		},
+		{
+			"name": "clyde-salinity90a",
+			"location": "Buckenbowra Creek",
+			"harvest_area": "Waterfall",
+			"buoy_number": "11"
+		},
+		{
+			"name": "clyde-salinity90b",
+			"location": "Big Island West",
+			"harvest_area": "Waterfall",
+			"buoy_number": "12"
+		},
+		{
+			"name": "clyde-salinity507",
+			"location": "Double Bay",
+			"harvest_area": "Waterfall",
+			"buoy_number": "13"
+		}
+	]
+}

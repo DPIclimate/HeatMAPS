@@ -2,7 +2,5 @@
 figures/imgs/*.png
 .swp
 *.*.swp
-*.*.*.swp
 *.egg-info
 .env
-db
