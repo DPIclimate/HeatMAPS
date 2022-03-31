@@ -156,7 +156,7 @@ class Map:
         self.extent = [150.1166, 150.1832, -35.6697, -35.7089]
         self.overlay_path = "figures/overlays/bbmap_shadow.png";
         self.leases_path = "shapefiles/oyster-leases.shp"
-        self.output_dir = "figures"
+        self.output_dir = "page/public"
         self.voi = variables
         if self.voi == None:
             info.error("Variable list not provided to map")
