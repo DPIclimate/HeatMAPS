@@ -154,9 +154,9 @@ class Map:
             log.info("Map dataframe not provided reverting to stored .csv")
             self.df = pd.read_csv("datasets/latest.csv")
         self.extent = [150.1166, 150.1832, -35.6697, -35.7089]
-        self.overlay_path = "figures/overlays/bbmap_shadow.png";
+        self.overlay_path = "imgs/overlays/bbmap_shadow.png";
         self.leases_path = "shapefiles/oyster-leases.shp"
-        self.output_dir = "page/public"
+        self.output_dir = "public/clyde_river"
         self.voi = variables
         if self.voi == None:
             info.error("Variable list not provided to map")
