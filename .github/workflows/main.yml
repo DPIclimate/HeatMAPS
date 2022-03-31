@@ -12,9 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Build and Run
-      env:
-        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v3
       with:
@@ -25,3 +22,5 @@ jobs:
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - run: sudo apt-get install libproj-dev
     - run: pip install -r requirements.txt && python main.py
+    env:
+        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
