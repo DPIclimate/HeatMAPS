@@ -1899,3 +1899,61 @@
 2022-03-31 15:14:00,907 [INFO] Latest reading 2022-03-31 14:00:00
 2022-03-31 15:14:03,124 [INFO] Generating map of temperature
 2022-03-31 15:14:03,125 [INFO] Latest reading 2022-03-31 15:00:00
+2022-03-31 15:54:01,047 [INFO] Requesting all devices from cache cache/devices.json
+2022-03-31 15:54:01,048 [INFO] Listing harvest areas
+2022-03-31 15:54:01,048 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-03-31 15:54:01,048 [INFO] Requesting resampled data from Ubidots for Angry Man Point
+2022-03-31 15:54:01,219 [INFO] Requesting resampled data from Ubidots for Rocky Point
+2022-03-31 15:54:01,388 [INFO] Requesting resampled data from Ubidots for Waterfall Creek
+2022-03-31 15:54:01,570 [INFO] Requesting resampled data from Ubidots for Chinamans Point
+2022-03-31 15:54:01,739 [INFO] Requesting resampled data from Ubidots for Double Bay
+2022-03-31 15:54:01,899 [INFO] Requesting resampled data from Ubidots for Buckenbowra Creek
+2022-03-31 15:54:02,074 [INFO] Requesting resampled data from Ubidots for Big Island West
+2022-03-31 15:54:02,269 [INFO] Requesting resampled data from Ubidots for Wray Street
+2022-03-31 15:54:02,431 [INFO] Requesting resampled data from Ubidots for Moonlight
+2022-03-31 15:54:02,592 [INFO] Requesting resampled data from Ubidots for Snapper Point
+2022-03-31 15:54:02,707 [INFO] Requesting resampled data from Ubidots for Budd Island North
+2022-03-31 15:54:02,882 [INFO] Requesting resampled data from Ubidots for Angry Man Point
+2022-03-31 15:54:03,002 [INFO] Requesting resampled data from Ubidots for Rocky Point
+2022-03-31 15:54:03,191 [INFO] Requesting resampled data from Ubidots for Waterfall Creek
+2022-03-31 15:54:03,359 [INFO] Requesting resampled data from Ubidots for Chinamans Point
+2022-03-31 15:54:03,529 [INFO] Requesting resampled data from Ubidots for Double Bay
+2022-03-31 15:54:03,687 [INFO] Requesting resampled data from Ubidots for Buckenbowra Creek
+2022-03-31 15:54:03,856 [INFO] Requesting resampled data from Ubidots for Big Island West
+2022-03-31 15:54:04,035 [INFO] Requesting resampled data from Ubidots for Wray Street
+2022-03-31 15:54:04,197 [INFO] Requesting resampled data from Ubidots for Moonlight
+2022-03-31 15:54:04,375 [INFO] Requesting resampled data from Ubidots for Snapper Point
+2022-03-31 15:54:04,496 [INFO] Requesting resampled data from Ubidots for Budd Island North
+2022-03-31 15:54:04,677 [INFO] Generating map of salinity
+2022-03-31 15:54:04,681 [INFO] Latest reading 2022-03-31 15:00:00
+2022-03-31 15:54:07,044 [INFO] Generating map of temperature
+2022-03-31 15:54:07,046 [INFO] Latest reading 2022-03-31 15:00:00
+2022-04-01 14:35:27,852 [INFO] Requesting all devices from cache cache/devices.json
+2022-04-01 14:35:27,852 [INFO] Listing harvest areas
+2022-04-01 14:35:27,852 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-04-01 14:35:27,852 [INFO] Requesting resampled data from Ubidots for Angry Man Point
+2022-04-01 14:35:28,077 [INFO] Requesting resampled data from Ubidots for Rocky Point
+2022-04-01 14:35:43,503 [INFO] Requesting resampled data from Ubidots for Waterfall Creek
+2022-04-01 14:35:43,670 [INFO] Requesting resampled data from Ubidots for Chinamans Point
+2022-04-01 14:35:43,836 [INFO] Requesting resampled data from Ubidots for Double Bay
+2022-04-01 14:35:44,002 [INFO] Requesting resampled data from Ubidots for Buckenbowra Creek
+2022-04-01 14:35:44,165 [INFO] Requesting resampled data from Ubidots for Big Island West
+2022-04-01 14:35:44,332 [INFO] Requesting resampled data from Ubidots for Wray Street
+2022-04-01 14:35:44,505 [INFO] Requesting resampled data from Ubidots for Moonlight
+2022-04-01 14:35:44,671 [INFO] Requesting resampled data from Ubidots for Snapper Point
+2022-04-01 14:35:44,793 [INFO] Requesting resampled data from Ubidots for Budd Island North
+2022-04-01 14:35:44,966 [INFO] Requesting resampled data from Ubidots for Angry Man Point
+2022-04-01 14:35:45,087 [INFO] Requesting resampled data from Ubidots for Rocky Point
+2022-04-01 14:35:45,265 [INFO] Requesting resampled data from Ubidots for Waterfall Creek
+2022-04-01 14:35:45,417 [INFO] Requesting resampled data from Ubidots for Chinamans Point
+2022-04-01 14:35:45,603 [INFO] Requesting resampled data from Ubidots for Double Bay
+2022-04-01 14:35:45,780 [INFO] Requesting resampled data from Ubidots for Buckenbowra Creek
+2022-04-01 14:35:45,954 [INFO] Requesting resampled data from Ubidots for Big Island West
+2022-04-01 14:35:46,130 [INFO] Requesting resampled data from Ubidots for Wray Street
+2022-04-01 14:35:46,297 [INFO] Requesting resampled data from Ubidots for Moonlight
+2022-04-01 14:35:46,455 [INFO] Requesting resampled data from Ubidots for Snapper Point
+2022-04-01 14:35:46,573 [INFO] Requesting resampled data from Ubidots for Budd Island North
+2022-04-01 14:35:46,759 [INFO] Generating map of salinity
+2022-04-01 14:35:46,764 [INFO] Latest reading 2022-04-01 14:00:00
+2022-04-01 14:35:49,017 [INFO] Generating map of temperature
+2022-04-01 14:35:49,019 [INFO] Latest reading 2022-04-01 14:00:00
