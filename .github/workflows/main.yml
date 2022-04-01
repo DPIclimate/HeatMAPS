@@ -12,8 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build python
+      uses: actions/setup-python@v3
+      env:
+        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
       with:
         python-version: '3.8'
         architecture: 'x64'
@@ -24,8 +28,6 @@ jobs:
     - run: sudo apt-get install libproj-dev -y
     - run: pip install --no-binary ":all:" shapely
     - run: pip install -r requirements.txt && python main.py
-    - env:
-        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
