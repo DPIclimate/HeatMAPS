@@ -14,9 +14,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Make env
+      uses: SpicyPizza/create-envfile@v1.3
+      with:
+        envkey_UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
     - name: Build python
-      env:
-        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
       uses: actions/setup-python@v3
       with:
         python-version: '3.8'
