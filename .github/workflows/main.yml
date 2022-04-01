@@ -22,6 +22,7 @@ jobs:
     - run: sudo apt-get install proj-bin
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - run: sudo apt-get install libproj-dev -y
+    - run: pip install --no-binary ":all:" shapely
     - run: pip install -r requirements.txt && python main.py
     env:
         UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
