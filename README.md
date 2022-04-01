@@ -8,14 +8,14 @@ Turns spatialially distributed sensor data into a colormap.
 ### Salinity
 <html>
   <div align="middle">
-    <img align="middle" src="https://dpiclimate.github.io/iot-spatial-interpolation/clyde_river/latest-salinity.png" alt="Salinity Map" height="400" hspace="20" vspace="50"/>
+    <img align="middle" src="https://dpiclimate.github.io/iot-spatial-interpolation/clyde_river/latest-salinity.png" alt="Salinity Map"/>
   </div>
 </html>
 
 ### Temperature
 <html>
   <div align="middle">
-    <img align="middle" src="https://dpiclimate.github.io/iot-spatial-interpolation/clyde_river/latest-temperature.png" alt="Salinity Map" height="400" hspace="20" vspace="50"/>
+    <img align="middle" src="https://dpiclimate.github.io/iot-spatial-interpolation/clyde_river/latest-temperature.png" alt="Temperature Map"/>
   </div>
 </html>
 
