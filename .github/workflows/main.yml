@@ -16,19 +16,19 @@ jobs:
       uses: actions/checkout@v3
     - name: Build python
       uses: actions/setup-python@v3
-      env:
-        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
       with:
         python-version: '3.8'
         architecture: 'x64'
         cache: 'pip'
+    - env:
+        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
     - run: echo "MPLBACKEND=Agg" >> $GITHUB_ENV
     - run: sudo apt-get install proj-bin
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - run: sudo apt-get install libproj-dev -y
-    - run: pip install --no-binary ":all:" shapely
+    - run: pip install --no-binary shapely
     - run: pip install -r requirements.txt && python main.py
-    - name: Deploy
+    - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
         branch: gh-pages # The branch the action should deploy to.
