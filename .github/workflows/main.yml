@@ -15,13 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Build python
+      env:
+        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
       uses: actions/setup-python@v3
       with:
         python-version: '3.8'
         architecture: 'x64'
         cache: 'pip'
-      env:
-        UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
     - run: sudo apt-get install proj-bin
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - run: sudo apt-get install libproj-dev -y
