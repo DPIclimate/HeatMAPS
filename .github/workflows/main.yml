@@ -26,7 +26,8 @@ jobs:
     - run: pip install -r requirements.txt && python main.py
     - env:
         UBIDOTS_KEY: ${{ secrets.UBIDOTS_KEY }}
-    - uses: JamesIves/github-pages-deploy-action@4.1.7
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
         branch: gh-pages # The branch the action should deploy to.
         folder: public # The folder the action should deploy.
