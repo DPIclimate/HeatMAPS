@@ -187,7 +187,7 @@ class Map:
             v_min = 0
             v_max = 40
             if variable == "temperature":
-                cmap = plt.cm.RdYlBu
+                cmap = plt.cm.RdYlBu_r
                 label = u"Temperature (\N{DEGREE SIGN}C)"
                 v_min = 10
                 v_max = 35
