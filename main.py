@@ -116,7 +116,7 @@ class Ubidots:
                 v_sum = 0;
                 v_n = 0;
                 for value in item[1:]:
-                    if value != None:
+                    if value != None and value < 40:
                         v_sum += value
                         v_n += 1
                 avg = round((v_sum / v_n), 2)
@@ -218,7 +218,7 @@ class Map:
 
             plt.colorbar(m, label=label) 
 
-            plt.title(f"Generated at: {select_df['Date'][0]}")
+            plt.title(f"Generated at: {datetime.now().strftime('%d-%m-%Y %H:%M')}")
             plt.tight_layout()
             plt.savefig(f"{self.output_dir}/latest-{variable}.png", dpi=300)
             plt.close(fig)
