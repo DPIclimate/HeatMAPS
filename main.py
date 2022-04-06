@@ -116,7 +116,7 @@ class Ubidots:
                 v_sum = 0;
                 v_n = 0;
                 for value in item[1:]:
-                    if value != None and value < 40:
+                    if value != None and value < 40 and value >= 0:
                         v_sum += value
                         v_n += 1
                 avg = round((v_sum / v_n), 2)
@@ -178,12 +178,14 @@ class Map:
                     select_df["Value"].values.astype(float), function="linear")
             interpolation = rbf_interp(X, Y)
 
+            plt.rc('font', size=16) 
+
             fig, ax = plt.subplots(1, 1, figsize=(14, 8), 
                     subplot_kw=dict(projection=ccrs.PlateCarree()))
 
             # Could be moved to config.json
-            cmap = plt.cm.RdYlGn
-            label = "Salinity (g/L)"
+            cmap = plt.cm.RdYlBu
+            label = "Salinity (ppt)"
             v_min = 0
             v_max = 40
             if variable == "temperature":
@@ -193,7 +195,7 @@ class Map:
                 v_max = 35
 
             # Underlying interpolation
-            m = ax.imshow(interpolation, extent=self.extent, aspect="auto", 
+            m = ax.imshow(interpolation, extent=self.extent, aspect="auto",
                     cmap=cmap, vmin=v_min, vmax=v_max, zorder=1)
 
             # Map img overlay
@@ -216,7 +218,7 @@ class Map:
             gridLines.right_labels = False
             gridLines.top_labels = False 
 
-            plt.colorbar(m, label=label) 
+            plt.colorbar(m, label=label, format=lambda x, _: f"{x:.0f}") 
 
             plt.title(f"Generated at: {datetime.now().strftime('%d-%m-%Y %H:%M')}")
             plt.tight_layout()
