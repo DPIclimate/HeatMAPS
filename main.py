@@ -119,7 +119,11 @@ class Ubidots:
                     if value != None and value < 40 and value >= 0:
                         v_sum += value
                         v_n += 1
-                avg = round((v_sum / v_n), 2)
+                try:
+                    avg = round((v_sum / v_n), 2)
+                except ZeroDivisionError as e:
+                    log.error(f"Values not valid: {e}")
+                    avg = None
                 # Append to Dataframe
                 self.df.loc[len(self.df.index)] = [ts, variable, device_name, lat, long, avg]
                     
