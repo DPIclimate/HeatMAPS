@@ -102,14 +102,14 @@ class Ubidots:
                 self.harvest_areas.append(device["harvest_area"])   
 
     def resample(self, body, device_name, lat, long, variable):
-        log.info(f"Requesting resampled data from Ubidots for {device_name}")
         url = "https://industrial.api.ubidots.com.au/api/v1.6/data/stats/resample/"
         res = requests.post(url, headers={"X-Auth-Token": self.API_TOKEN,
             "Content-Type": "application/json"}, json=body)
 
+        log.info(f"Requested resampled data from Ubidots for {device_name}. Status code = {res.status_code}")
         if res.status_code == 200:
             j_res = json.loads(res.text)
-            for item in j_res["results"]:
+            for item in j_res["results"][:25]: # Only take the first 24 hours
                 ts = ""
                 if item[0] != None:
                     ts = datetime.fromtimestamp(int(item[0] / 1000))
@@ -143,7 +143,7 @@ class Ubidots:
                                 "aggregation": "mean",
                                 "join_dataframes": "true",
                                 "period": period,
-                                "start": int((time.time() - 86400) * 1000), # Roughly 1 day
+                                "start": int((time.time() - 108000) * 1000), # Roughly 30 hours
                                 "end": int(time.time() * 1000) 
                                 }
 
@@ -230,6 +230,7 @@ class Map:
                 plt.savefig(out_dir, dpi=72)
                 plt.close(fig)
                 log.info(out_dir)
+
 
 if __name__ == "__main__":
     log = logging.getLogger("logger")
