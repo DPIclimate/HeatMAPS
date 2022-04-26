@@ -23,7 +23,7 @@ from cartopy.io.shapereader import Reader
 from cartopy.feature import ShapelyFeature
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 
-# Environmental 
+# Environment
 import os
 import sys
 from dotenv import load_dotenv
@@ -69,7 +69,7 @@ class Ubidots:
                                     "harvest_area": c_device["harvest_area"],
                                     "location": c_device["location"],
                                     "variables": variables
-                                })
+                                    })
                     self.devices["devices"] = device_info
                 with open(f"{self.cache_dir}/devices.json", "w") as cache:
                     json.dump(self.devices, cache, sort_keys=True, indent=4)
@@ -126,7 +126,7 @@ class Ubidots:
                     avg = None
                 # Append to Dataframe
                 self.df.loc[len(self.df.index)] = [ts, variable, device_name, lat, long, avg]
-                    
+
         else:
             log.error(f"Error requesting resampled data from Ubidots. {res.status_code} {res.text}")
             sys.exit(1)
@@ -139,14 +139,14 @@ class Ubidots:
                 for device in self.devices["devices"]:
                     if ha == device["harvest_area"]:
                         body = {
-                            "variables": [device["variables"][var]],
-                            "aggregation": "mean",
-                            "join_dataframes": "true",
-                            "period": period,
-                            "start": int((time.time() - 86400) * 1000), # Roughly 1 day
-                            "end": int(time.time() * 1000) 
-                        }
-                         
+                                "variables": [device["variables"][var]],
+                                "aggregation": "mean",
+                                "join_dataframes": "true",
+                                "period": period,
+                                "start": int((time.time() - 86400) * 1000), # Roughly 1 day
+                                "end": int(time.time() * 1000) 
+                                }
+
                         self.resample(body, device["location"], 
                                 device["latitude"], device["longitude"], var)
 
@@ -174,73 +174,74 @@ class Map:
             log.info(f"Generating map of {variable}")
 
             # Little pandas magic to pull the latest value from each variable
-            select_df = self.df.where(self.df["Variable"] == variable).groupby('Device').first()
+            for index, date in enumerate(self.df.where(self.df["Variable"] == variable).groupby('Date')):
+                date_df = date[1]
+                log.info(f"Latest reading {date[0]}")
 
-            log.info(f"Latest reading {select_df['Date'][0]}")
+                rbf_interp = Rbf(date_df["Longitude"], date_df["Latitude"],
+                        date_df["Value"].values.astype(float), function="linear")
+                interpolation = rbf_interp(X, Y)
 
-            rbf_interp = Rbf(select_df["Longitude"], select_df["Latitude"],
-                    select_df["Value"].values.astype(float), function="linear")
-            interpolation = rbf_interp(X, Y)
+                plt.rc('font', size=16) 
 
-            plt.rc('font', size=16) 
+                fig, ax = plt.subplots(1, 1, figsize=(14, 8), 
+                        subplot_kw=dict(projection=ccrs.PlateCarree()))
 
-            fig, ax = plt.subplots(1, 1, figsize=(14, 8), 
-                    subplot_kw=dict(projection=ccrs.PlateCarree()))
+                # Could be moved to config.json
+                cmap = plt.cm.RdYlBu
+                label = "Salinity (ppt)"
+                v_min = 0
+                v_max = 40
+                if variable == "temperature":
+                    cmap = plt.cm.RdYlBu_r
+                    label = u"Temperature (\N{DEGREE SIGN}C)"
+                    v_min = 10
+                    v_max = 35
 
-            # Could be moved to config.json
-            cmap = plt.cm.RdYlBu
-            label = "Salinity (ppt)"
-            v_min = 0
-            v_max = 40
-            if variable == "temperature":
-                cmap = plt.cm.RdYlBu_r
-                label = u"Temperature (\N{DEGREE SIGN}C)"
-                v_min = 10
-                v_max = 35
+                # Underlying interpolation
+                m = ax.imshow(interpolation, extent=self.extent, aspect="auto",
+                        cmap=cmap, vmin=v_min, vmax=v_max, zorder=1)
 
-            # Underlying interpolation
-            m = ax.imshow(interpolation, extent=self.extent, aspect="auto",
-                    cmap=cmap, vmin=v_min, vmax=v_max, zorder=1)
+                # Map img overlay
+                ax.imshow(plt.imread(self.overlay_path), extent=self.extent, zorder=2)
 
-            # Map img overlay
-            ax.imshow(plt.imread(self.overlay_path), extent=self.extent, zorder=2)
-
-            # Oyster lease overlay
-            ax.add_feature(ShapelyFeature(Reader(self.leases_path).geometries(),
+                # Oyster lease overlay
+                ax.add_feature(ShapelyFeature(Reader(self.leases_path).geometries(),
                     ccrs.PlateCarree(), facecolor='grey', alpha=0.8), zorder=3)
 
-            # Buoy overlay
-            ax.scatter(select_df["Longitude"], select_df["Latitude"], c="#c33c39", 
-                    edgecolor="w", linewidth=2, s=80, zorder=4)
+                # Buoy overlay
+                ax.scatter(date_df["Longitude"], date_df["Latitude"], c="#c33c39", 
+                        edgecolor="w", linewidth=2, s=80, zorder=4)
 
-            # Gridline and map setup
-            ax.set_extent(self.extent)
-            ax.set_aspect('auto', adjustable=None)
-            gridLines = ax.gridlines(draw_labels=True, zorder=3)
-            gridLines.xformatter = LONGITUDE_FORMATTER
-            gridLines.yformatter = LATITUDE_FORMATTER
-            gridLines.right_labels = False
-            gridLines.top_labels = False 
+                # Gridline and map setup
+                ax.set_extent(self.extent)
+                ax.set_aspect('auto', adjustable=None)
+                gridLines = ax.gridlines(draw_labels=True, zorder=3)
+                gridLines.xformatter = LONGITUDE_FORMATTER
+                gridLines.yformatter = LATITUDE_FORMATTER
+                gridLines.right_labels = False
+                gridLines.top_labels = False 
 
-            plt.colorbar(m, label=label, format=lambda x, _: f"{x:.0f}") 
+                plt.colorbar(m, label=label, format=lambda x, _: f"{x:.0f}") 
 
-            plt.title(f"Generated at: {datetime.now().strftime('%d-%m-%Y %H:%M')}")
-            plt.tight_layout()
-            plt.savefig(f"{self.output_dir}/latest-{variable}.png", dpi=300)
-            plt.close(fig)
-            log.info(f"Saved figure to: {self.output_dir}/latest-{variable}.png")
+                plt.title(f"{date[0]}")
+                plt.tight_layout()
+                out_dir = f"{self.output_dir}/{variable}/{index}.png"
+                plt.savefig(out_dir, dpi=200)
+                plt.close(fig)
+                log.info(out_dir)
 
 if __name__ == "__main__":
     log = logging.getLogger("logger")
     logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        handlers=[
-            logging.FileHandler("log/debug.log"),
-            logging.StreamHandler(sys.stdout)
-        ]
-    )
-    
+            level=logging.INFO,
+            format="%(asctime)s [%(levelname)s] %(message)s",
+            handlers=[
+                logging.FileHandler("log/debug.log"),
+                logging.StreamHandler(sys.stdout)
+                ]
+            )
+
     ubi = Ubidots()
     ubi.get_all_devices()
     ubi.list_harvest_areas()
