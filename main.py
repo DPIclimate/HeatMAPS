@@ -227,7 +227,7 @@ class Map:
                 plt.title(f"{date[0]}")
                 plt.tight_layout()
                 out_dir = f"{self.output_dir}/{variable}/{index}.png"
-                plt.savefig(out_dir, dpi=200)
+                plt.savefig(out_dir, dpi=72)
                 plt.close(fig)
                 log.info(out_dir)
 

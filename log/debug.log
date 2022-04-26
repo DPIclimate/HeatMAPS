@@ -2969,3 +2969,130 @@
 2022-04-26 09:43:40,351 [INFO] public/clyde_river/temperature/23.png
 2022-04-26 09:43:40,351 [INFO] Latest reading 2022-04-26 09:00:00
 2022-04-26 09:43:41,510 [INFO] public/clyde_river/temperature/24.png
+2022-04-26 12:54:03,732 [INFO] Requesting all devices from cache cache/devices.json
+2022-04-26 12:54:03,733 [INFO] Listing harvest areas
+2022-04-26 12:54:03,733 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-04-26 12:54:03,733 [INFO] Requesting resampled data from Ubidots for Angry Man Point
+2022-04-26 12:54:05,887 [INFO] Requesting resampled data from Ubidots for Rocky Point
+2022-04-26 12:54:07,063 [INFO] Requesting resampled data from Ubidots for Waterfall Creek
+2022-04-26 12:54:10,288 [INFO] Requesting resampled data from Ubidots for Chinamans Point
+2022-04-26 12:54:10,452 [INFO] Requesting resampled data from Ubidots for Double Bay
+2022-04-26 12:54:10,606 [INFO] Requesting resampled data from Ubidots for Buckenbowra Creek
+2022-04-26 12:54:42,307 [INFO] Requesting resampled data from Ubidots for Big Island West
+2022-04-26 12:54:42,484 [INFO] Requesting resampled data from Ubidots for Wray Street
+2022-04-26 12:55:14,050 [INFO] Requesting resampled data from Ubidots for Moonlight
+2022-04-26 12:55:17,242 [INFO] Requesting resampled data from Ubidots for Snapper Point
+2022-04-26 12:55:17,348 [INFO] Requesting resampled data from Ubidots for Budd Island North
+2022-04-26 12:55:18,532 [INFO] Requesting resampled data from Ubidots for Angry Man Point
+2022-04-26 12:55:18,641 [INFO] Requesting resampled data from Ubidots for Rocky Point
+2022-04-26 12:55:21,861 [INFO] Requesting resampled data from Ubidots for Waterfall Creek
+2022-04-26 12:55:22,039 [INFO] Requesting resampled data from Ubidots for Chinamans Point
+2022-04-26 12:55:22,188 [INFO] Requesting resampled data from Ubidots for Double Bay
+2022-04-26 12:55:22,337 [INFO] Requesting resampled data from Ubidots for Buckenbowra Creek
+2022-04-26 12:55:22,483 [INFO] Requesting resampled data from Ubidots for Big Island West
+2022-04-26 12:55:22,651 [INFO] Requesting resampled data from Ubidots for Wray Street
+2022-04-26 12:55:22,810 [INFO] Requesting resampled data from Ubidots for Moonlight
+2022-04-26 12:55:22,968 [INFO] Requesting resampled data from Ubidots for Snapper Point
+2022-04-26 12:55:23,065 [INFO] Requesting resampled data from Ubidots for Budd Island North
+2022-04-26 12:55:23,287 [INFO] Generating map of salinity
+2022-04-26 12:55:23,292 [INFO] Latest reading 2022-04-25 12:00:00
+2022-04-26 12:55:23,915 [INFO] public/clyde_river/salinity/0.png
+2022-04-26 12:55:23,915 [INFO] Latest reading 2022-04-25 13:00:00
+2022-04-26 12:55:24,418 [INFO] public/clyde_river/salinity/1.png
+2022-04-26 12:55:24,418 [INFO] Latest reading 2022-04-25 14:00:00
+2022-04-26 12:55:24,916 [INFO] public/clyde_river/salinity/2.png
+2022-04-26 12:55:24,916 [INFO] Latest reading 2022-04-25 15:00:00
+2022-04-26 12:55:25,436 [INFO] public/clyde_river/salinity/3.png
+2022-04-26 12:55:25,436 [INFO] Latest reading 2022-04-25 16:00:00
+2022-04-26 12:55:25,932 [INFO] public/clyde_river/salinity/4.png
+2022-04-26 12:55:25,932 [INFO] Latest reading 2022-04-25 17:00:00
+2022-04-26 12:55:26,431 [INFO] public/clyde_river/salinity/5.png
+2022-04-26 12:55:26,431 [INFO] Latest reading 2022-04-25 18:00:00
+2022-04-26 12:55:26,924 [INFO] public/clyde_river/salinity/6.png
+2022-04-26 12:55:26,924 [INFO] Latest reading 2022-04-25 19:00:00
+2022-04-26 12:55:27,418 [INFO] public/clyde_river/salinity/7.png
+2022-04-26 12:55:27,418 [INFO] Latest reading 2022-04-25 20:00:00
+2022-04-26 12:55:27,918 [INFO] public/clyde_river/salinity/8.png
+2022-04-26 12:55:27,919 [INFO] Latest reading 2022-04-25 21:00:00
+2022-04-26 12:55:28,423 [INFO] public/clyde_river/salinity/9.png
+2022-04-26 12:55:28,423 [INFO] Latest reading 2022-04-25 22:00:00
+2022-04-26 12:55:28,938 [INFO] public/clyde_river/salinity/10.png
+2022-04-26 12:55:28,938 [INFO] Latest reading 2022-04-25 23:00:00
+2022-04-26 12:55:29,445 [INFO] public/clyde_river/salinity/11.png
+2022-04-26 12:55:29,445 [INFO] Latest reading 2022-04-26 00:00:00
+2022-04-26 12:55:29,941 [INFO] public/clyde_river/salinity/12.png
+2022-04-26 12:55:29,941 [INFO] Latest reading 2022-04-26 01:00:00
+2022-04-26 12:55:30,446 [INFO] public/clyde_river/salinity/13.png
+2022-04-26 12:55:30,446 [INFO] Latest reading 2022-04-26 02:00:00
+2022-04-26 12:55:30,984 [INFO] public/clyde_river/salinity/14.png
+2022-04-26 12:55:30,984 [INFO] Latest reading 2022-04-26 03:00:00
+2022-04-26 12:55:31,494 [INFO] public/clyde_river/salinity/15.png
+2022-04-26 12:55:31,494 [INFO] Latest reading 2022-04-26 04:00:00
+2022-04-26 12:55:31,993 [INFO] public/clyde_river/salinity/16.png
+2022-04-26 12:55:31,993 [INFO] Latest reading 2022-04-26 05:00:00
+2022-04-26 12:55:32,498 [INFO] public/clyde_river/salinity/17.png
+2022-04-26 12:55:32,498 [INFO] Latest reading 2022-04-26 06:00:00
+2022-04-26 12:55:33,005 [INFO] public/clyde_river/salinity/18.png
+2022-04-26 12:55:33,005 [INFO] Latest reading 2022-04-26 07:00:00
+2022-04-26 12:55:33,507 [INFO] public/clyde_river/salinity/19.png
+2022-04-26 12:55:33,507 [INFO] Latest reading 2022-04-26 08:00:00
+2022-04-26 12:55:34,009 [INFO] public/clyde_river/salinity/20.png
+2022-04-26 12:55:34,009 [INFO] Latest reading 2022-04-26 09:00:00
+2022-04-26 12:55:34,509 [INFO] public/clyde_river/salinity/21.png
+2022-04-26 12:55:34,509 [INFO] Latest reading 2022-04-26 10:00:00
+2022-04-26 12:55:35,038 [INFO] public/clyde_river/salinity/22.png
+2022-04-26 12:55:35,039 [INFO] Latest reading 2022-04-26 11:00:00
+2022-04-26 12:55:35,543 [INFO] public/clyde_river/salinity/23.png
+2022-04-26 12:55:35,543 [INFO] Latest reading 2022-04-26 12:00:00
+2022-04-26 12:55:36,051 [INFO] public/clyde_river/salinity/24.png
+2022-04-26 12:55:36,052 [INFO] Generating map of temperature
+2022-04-26 12:55:36,053 [INFO] Latest reading 2022-04-25 12:00:00
+2022-04-26 12:55:36,602 [INFO] public/clyde_river/temperature/0.png
+2022-04-26 12:55:36,603 [INFO] Latest reading 2022-04-25 13:00:00
+2022-04-26 12:55:37,101 [INFO] public/clyde_river/temperature/1.png
+2022-04-26 12:55:37,101 [INFO] Latest reading 2022-04-25 14:00:00
+2022-04-26 12:55:37,589 [INFO] public/clyde_river/temperature/2.png
+2022-04-26 12:55:37,589 [INFO] Latest reading 2022-04-25 15:00:00
+2022-04-26 12:55:38,079 [INFO] public/clyde_river/temperature/3.png
+2022-04-26 12:55:38,079 [INFO] Latest reading 2022-04-25 16:00:00
+2022-04-26 12:55:38,569 [INFO] public/clyde_river/temperature/4.png
+2022-04-26 12:55:38,569 [INFO] Latest reading 2022-04-25 17:00:00
+2022-04-26 12:55:39,079 [INFO] public/clyde_river/temperature/5.png
+2022-04-26 12:55:39,079 [INFO] Latest reading 2022-04-25 18:00:00
+2022-04-26 12:55:39,574 [INFO] public/clyde_river/temperature/6.png
+2022-04-26 12:55:39,575 [INFO] Latest reading 2022-04-25 19:00:00
+2022-04-26 12:55:40,073 [INFO] public/clyde_river/temperature/7.png
+2022-04-26 12:55:40,073 [INFO] Latest reading 2022-04-25 20:00:00
+2022-04-26 12:55:40,566 [INFO] public/clyde_river/temperature/8.png
+2022-04-26 12:55:40,566 [INFO] Latest reading 2022-04-25 21:00:00
+2022-04-26 12:55:41,059 [INFO] public/clyde_river/temperature/9.png
+2022-04-26 12:55:41,060 [INFO] Latest reading 2022-04-25 22:00:00
+2022-04-26 12:55:41,562 [INFO] public/clyde_river/temperature/10.png
+2022-04-26 12:55:41,563 [INFO] Latest reading 2022-04-25 23:00:00
+2022-04-26 12:55:42,112 [INFO] public/clyde_river/temperature/11.png
+2022-04-26 12:55:42,112 [INFO] Latest reading 2022-04-26 00:00:00
+2022-04-26 12:55:42,620 [INFO] public/clyde_river/temperature/12.png
+2022-04-26 12:55:42,620 [INFO] Latest reading 2022-04-26 01:00:00
+2022-04-26 12:55:43,116 [INFO] public/clyde_river/temperature/13.png
+2022-04-26 12:55:43,116 [INFO] Latest reading 2022-04-26 02:00:00
+2022-04-26 12:55:43,613 [INFO] public/clyde_river/temperature/14.png
+2022-04-26 12:55:43,613 [INFO] Latest reading 2022-04-26 03:00:00
+2022-04-26 12:55:44,111 [INFO] public/clyde_river/temperature/15.png
+2022-04-26 12:55:44,111 [INFO] Latest reading 2022-04-26 04:00:00
+2022-04-26 12:55:44,612 [INFO] public/clyde_river/temperature/16.png
+2022-04-26 12:55:44,612 [INFO] Latest reading 2022-04-26 05:00:00
+2022-04-26 12:55:45,124 [INFO] public/clyde_river/temperature/17.png
+2022-04-26 12:55:45,124 [INFO] Latest reading 2022-04-26 06:00:00
+2022-04-26 12:55:45,614 [INFO] public/clyde_river/temperature/18.png
+2022-04-26 12:55:45,615 [INFO] Latest reading 2022-04-26 07:00:00
+2022-04-26 12:55:46,115 [INFO] public/clyde_river/temperature/19.png
+2022-04-26 12:55:46,115 [INFO] Latest reading 2022-04-26 08:00:00
+2022-04-26 12:55:46,607 [INFO] public/clyde_river/temperature/20.png
+2022-04-26 12:55:46,607 [INFO] Latest reading 2022-04-26 09:00:00
+2022-04-26 12:55:47,107 [INFO] public/clyde_river/temperature/21.png
+2022-04-26 12:55:47,107 [INFO] Latest reading 2022-04-26 10:00:00
+2022-04-26 12:55:47,602 [INFO] public/clyde_river/temperature/22.png
+2022-04-26 12:55:47,602 [INFO] Latest reading 2022-04-26 11:00:00
+2022-04-26 12:55:48,099 [INFO] public/clyde_river/temperature/23.png
+2022-04-26 12:55:48,099 [INFO] Latest reading 2022-04-26 12:00:00
+2022-04-26 12:55:48,596 [INFO] public/clyde_river/temperature/24.png
