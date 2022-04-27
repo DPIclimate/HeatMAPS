@@ -17,10 +17,10 @@
             "api_label": "00da98bdf9399d7b",
             "harvest_area": "Waterfall",
             "id": "6181b4ca852f0907a66ca289",
-            "latitude": -35.67092,
+            "latitude": -35.67112984365436,
             "location": "Double Bay",
-            "longitude": 150.12886,
-            "name": "clyde-salinity507",
+            "longitude": 150.12863977273742,
+            "name": "Buoy 13 - Double Bay",
             "variables": {
                 "salinity": "6181b4e0a73c34080beda0d7",
                 "temperature": "6181b4e2852f0907a66ca28b"
@@ -33,7 +33,7 @@
             "latitude": -35.69938089701878,
             "location": "Wray Street",
             "longitude": 150.17863187952915,
-            "name": "clyde-salinity20c",
+            "name": "Buoy 01 - Wray Street",
             "variables": {
                 "salinity": "61788ec4a73c3402b041fb61",
                 "temperature": "61788ec5dc917002aa2562e2"
@@ -46,7 +46,7 @@
             "latitude": -35.69531512915687,
             "location": "Rocky Point",
             "longitude": 150.14998689307845,
-            "name": "clyde-salinity20b",
+            "name": "Fixed depth - Rocky Pt.",
             "variables": {
                 "salinity": "61788eb8a73c34027320e15e",
                 "temperature": "61788eb9a73c3401fa330fbf"
@@ -56,10 +56,10 @@
             "api_label": "00d652338ebe5fd6",
             "harvest_area": "Rocky Point",
             "id": "6174704c852f09000e22a10f",
-            "latitude": -35.70753,
+            "latitude": -35.70703717883276,
             "location": "Waterfall Creek",
-            "longitude": 150.13557,
-            "name": "clyde-salinity90g",
+            "longitude": 150.13527849703107,
+            "name": "Buoy 10 - Waterfall Creek",
             "variables": {
                 "salinity": "6174a4cc852f09011427403b",
                 "temperature": "6174a4cddc9170000d0c6be1"
@@ -72,7 +72,7 @@
             "latitude": -35.695364,
             "location": "Buckenbowra Creek",
             "longitude": 150.133449,
-            "name": "clyde-salinity90a",
+            "name": "Buoy 11 - Opp. Buckenbowra",
             "variables": {
                 "salinity": "61732bf6852f09000d3d1bff",
                 "temperature": "61732bf7852f09000e22a105"
@@ -82,10 +82,10 @@
             "api_label": "008ec7b0b5a08fd6",
             "harvest_area": "Rocky Point",
             "id": "617318cf852f09000e22a100",
-            "latitude": -35.703899,
+            "latitude": -35.70401173629368,
             "location": "Chinamans Point",
-            "longitude": 150.1409484,
-            "name": "clyde-salinity802",
+            "longitude": 150.14118417464715,
+            "name": "Buoy 09 - Chinaman's Point",
             "variables": {
                 "salinity": "617318d0dc9170000d0c6bbc",
                 "temperature": "617318d1852f09000e22a102"
@@ -98,7 +98,7 @@
             "latitude": -35.684953,
             "location": "Big Island West",
             "longitude": 150.125927,
-            "name": "clyde-salinity90b",
+            "name": "Buoy 12 - Big Island West",
             "variables": {
                 "salinity": "6171f4d5810cbd25005c19e4",
                 "temperature": "6171f4d686f43b04efae2d48"
@@ -108,10 +108,10 @@
             "api_label": "006a77d6d0df4815",
             "harvest_area": "Moonlight",
             "id": "616e4a8686f43b01b3bd22f9",
-            "latitude": -35.694544,
+            "latitude": -35.69455027002638,
             "location": "Moonlight",
-            "longitude": 150.1727,
-            "name": "clyde-salinity501",
+            "longitude": 150.17278760144148,
+            "name": "Buoy 03 - Moonlight",
             "variables": {
                 "salinity": "616e4a8741ac9d039cfa39f8",
                 "temperature": "616e4a88810cbd039c60af03"
@@ -137,7 +137,7 @@
             "latitude": -35.698588,
             "location": "Budd Island North",
             "longitude": 150.168668,
-            "name": "clyde-salinity90d",
+            "name": "Buoy 04 - Budd Isl. North",
             "variables": {
                 "salinity": "616e476d41ac9d03d99b67ec",
                 "temperature": "616e476e41ac9d03d99b67ed"

@@ -1,19 +1,19 @@
 {
 	"devices": [
 		{
-			"name": "clyde-salinity20c",
+			"name": "Buoy 01 - Wray Street",
 			"location": "Wray Street",
 			"harvest_area": "Moonlight",
 			"buoy_number": "1"
 		},
 		{
-			"name": "clyde-salinity501",
+			"name": "Buoy 03 - Moonlight",
 			"location": "Moonlight",
 			"harvest_area": "Moonlight",
 			"buoy_number": "3"
 		},
 		{
-			"name": "clyde-salinity90d",
+			"name": "Buoy 04 - Budd Isl. North",
 			"location": "Budd Island North",
 			"harvest_area": "Moonlight",
 			"buoy_number": "4"
@@ -25,7 +25,7 @@
 			"buoy_number": "5"
 		},
 		{
-			"name": "clyde-salinity20b",
+			"name": "Fixed depth - Rocky Pt.",
 			"location": "Rocky Point",
 			"harvest_area": "Rocky Point",
 			"buoy_number": "Fixed"
@@ -37,31 +37,31 @@
 			"buoy_number": "8"
 		},
 		{
-			"name": "clyde-salinity802",
+			"name": "Buoy 09 - Chinaman's Point",
 			"location": "Chinamans Point",
 			"harvest_area": "Rocky Point",
 			"buoy_number": "9"
 		},
 		{
-			"name": "clyde-salinity90g",
+			"name": "Buoy 10 - Waterfall Creek",
 			"location": "Waterfall Creek",
 			"harvest_area": "Rocky Point",
 			"buoy_number": "10"
 		},
 		{
-			"name": "clyde-salinity90a",
+			"name": "Buoy 11 - Opp. Buckenbowra",
 			"location": "Buckenbowra Creek",
 			"harvest_area": "Waterfall",
 			"buoy_number": "11"
 		},
 		{
-			"name": "clyde-salinity90b",
+			"name": "Buoy 12 - Big Island West",
 			"location": "Big Island West",
 			"harvest_area": "Waterfall",
 			"buoy_number": "12"
 		},
 		{
-			"name": "clyde-salinity507",
+			"name": "Buoy 13 - Double Bay",
 			"location": "Double Bay",
 			"harvest_area": "Waterfall",
 			"buoy_number": "13"

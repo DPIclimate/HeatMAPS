@@ -109,23 +109,24 @@ class Ubidots:
         log.info(f"Requested resampled data from Ubidots for {device_name}. Status code = {res.status_code}")
         if res.status_code == 200:
             j_res = json.loads(res.text)
-            for item in j_res["results"][:25]: # Only take the first 24 hours
-                ts = ""
-                if item[0] != None:
-                    ts = datetime.fromtimestamp(int(item[0] / 1000))
-                v_sum = 0;
-                v_n = 0;
-                for value in item[1:]:
-                    if value != None and value < 40 and value >= 0:
-                        v_sum += value
-                        v_n += 1
-                try:
-                    avg = round((v_sum / v_n), 2)
-                except ZeroDivisionError as e:
-                    log.error(f"Values not valid: {e}")
-                    avg = None
-                # Append to Dataframe
-                self.df.loc[len(self.df.index)] = [ts, variable, device_name, lat, long, avg]
+            if len(j_res["results"]) >= 24:
+                for item in j_res["results"][:25]: # Only take the first 24 hours
+                    ts = ""
+                    if item[0] != None:
+                        ts = datetime.fromtimestamp(int(item[0] / 1000))
+                    v_sum = 0;
+                    v_n = 0;
+                    for value in item[1:]:
+                        if value != None and value < 40 and value >= 0:
+                            v_sum += value
+                            v_n += 1
+                    try:
+                        avg = round((v_sum / v_n), 2)
+                    except ZeroDivisionError as e:
+                        log.error(f"Values not valid: {e}")
+                        avg = None
+                    # Append to Dataframe
+                    self.df.loc[len(self.df.index)] = [ts, variable, device_name, lat, long, avg]
 
         else:
             log.error(f"Error requesting resampled data from Ubidots. {res.status_code} {res.text}")
@@ -174,9 +175,14 @@ class Map:
             log.info(f"Generating map of {variable}")
 
             # Little pandas magic to pull the latest value from each variable
-            for index, date in enumerate(self.df.where(self.df["Variable"] == variable).groupby('Date')):
+            index = 0
+            for date in self.df.where(self.df["Variable"] == variable).groupby('Date'):
                 date_df = date[1]
                 log.info(f"Latest reading {date[0]}")
+
+                # Don't worry about timestamps where less than 5 bouys reported readings (edge cases)
+                if len(date_df) < 5:
+                    continue
 
                 rbf_interp = Rbf(date_df["Longitude"], date_df["Latitude"],
                         date_df["Value"].values.astype(float), function="linear")
@@ -230,6 +236,8 @@ class Map:
                 plt.savefig(out_dir, dpi=72)
                 plt.close(fig)
                 log.info(out_dir)
+
+                index += 1
 
 
 if __name__ == "__main__":
