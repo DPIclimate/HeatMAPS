@@ -117,16 +117,15 @@ class Ubidots:
                     v_sum = 0;
                     v_n = 0;
                     for value in item[1:]:
-                        if value != None and value < 40 and value >= 0:
+                        if value != None and value < 40 and value >= 0.01:
                             v_sum += value
                             v_n += 1
                     try:
                         avg = round((v_sum / v_n), 2)
+                        # Append to Dataframe
+                        self.df.loc[len(self.df.index)] = [ts, variable, device_name, lat, long, avg]
                     except ZeroDivisionError as e:
                         log.error(f"Values not valid: {e}")
-                        avg = None
-                    # Append to Dataframe
-                    self.df.loc[len(self.df.index)] = [ts, variable, device_name, lat, long, avg]
 
         else:
             log.error(f"Error requesting resampled data from Ubidots. {res.status_code} {res.text}")

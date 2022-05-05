@@ -4106,3 +4106,540 @@
 2022-04-28 08:27:22,764 [INFO] public/clyde_river/temperature/23.png
 2022-04-28 08:27:22,764 [INFO] Latest reading 2022-04-28 08:00:00
 2022-04-28 08:27:23,255 [INFO] public/clyde_river/temperature/24.png
+2022-05-02 12:19:46,067 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-02 12:19:46,067 [INFO] Listing harvest areas
+2022-05-02 12:19:46,067 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-02 12:19:47,315 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:19:47,430 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:19:47,586 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:19:50,757 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:19:50,912 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:19:51,082 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:19:51,198 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:19:51,350 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:19:51,490 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:19:51,637 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:19:51,828 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:19:51,973 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:19:52,097 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:19:52,243 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:19:52,368 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:19:52,500 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:19:52,674 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:19:52,900 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:19:53,108 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:19:53,244 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:19:53,373 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:19:53,484 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:19:53,518 [INFO] Generating map of salinity
+2022-05-02 12:19:53,522 [INFO] Latest reading 2022-05-01 11:00:00
+2022-05-02 12:19:53,522 [INFO] Latest reading 2022-05-01 12:00:00
+2022-05-02 12:20:01,627 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-02 12:20:01,628 [INFO] Listing harvest areas
+2022-05-02 12:20:01,628 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-02 12:20:01,754 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:21:06,791 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:21:06,978 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:21:07,135 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:21:40,749 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-02 12:21:40,749 [INFO] Listing harvest areas
+2022-05-02 12:21:40,749 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-02 12:21:40,878 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:21:40,992 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:21:41,120 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:21:41,255 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:21:41,390 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:21:41,520 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:21:41,663 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:21:42,820 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:21:42,982 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:21:43,110 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:21:43,228 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:21:43,368 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:21:43,483 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:21:43,620 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:21:43,754 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:21:43,886 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:21:44,028 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:21:44,160 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:21:44,331 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:21:44,484 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:21:44,608 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:21:44,716 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:21:44,749 [INFO] Generating map of salinity
+2022-05-02 12:21:44,751 [INFO] Latest reading 2022-05-01 11:00:00
+2022-05-02 12:21:44,751 [INFO] Latest reading 2022-05-01 12:00:00
+2022-05-02 12:29:35,140 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-02 12:29:35,140 [INFO] Listing harvest areas
+2022-05-02 12:29:35,140 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-02 12:29:35,255 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:29:35,366 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:29:35,508 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:29:35,666 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:29:35,885 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:29:36,085 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:29:36,227 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:29:36,375 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:29:36,523 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:29:36,651 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:29:36,775 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:29:36,932 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:29:37,044 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:29:37,178 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:29:37,307 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:29:37,441 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:29:37,573 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:29:37,683 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:29:37,831 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:29:37,962 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:29:38,084 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:29:38,199 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:29:38,235 [INFO] Generating map of salinity
+2022-05-02 12:29:38,239 [INFO] Latest reading 2022-05-01 11:00:00
+2022-05-02 12:29:38,239 [INFO] Latest reading 2022-05-01 12:00:00
+2022-05-02 12:29:38,866 [INFO] public/clyde_river/salinity/0.png
+2022-05-02 12:29:38,866 [INFO] Latest reading 2022-05-01 13:00:00
+2022-05-02 12:29:39,362 [INFO] public/clyde_river/salinity/1.png
+2022-05-02 12:29:39,362 [INFO] Latest reading 2022-05-01 14:00:00
+2022-05-02 12:29:39,857 [INFO] public/clyde_river/salinity/2.png
+2022-05-02 12:29:39,857 [INFO] Latest reading 2022-05-01 15:00:00
+2022-05-02 12:29:40,372 [INFO] public/clyde_river/salinity/3.png
+2022-05-02 12:29:40,372 [INFO] Latest reading 2022-05-01 16:00:00
+2022-05-02 12:29:40,869 [INFO] public/clyde_river/salinity/4.png
+2022-05-02 12:29:40,869 [INFO] Latest reading 2022-05-01 17:00:00
+2022-05-02 12:29:41,372 [INFO] public/clyde_river/salinity/5.png
+2022-05-02 12:29:41,372 [INFO] Latest reading 2022-05-01 18:00:00
+2022-05-02 12:29:41,876 [INFO] public/clyde_river/salinity/6.png
+2022-05-02 12:29:41,876 [INFO] Latest reading 2022-05-01 19:00:00
+2022-05-02 12:29:42,389 [INFO] public/clyde_river/salinity/7.png
+2022-05-02 12:29:42,389 [INFO] Latest reading 2022-05-01 20:00:00
+2022-05-02 12:29:42,906 [INFO] public/clyde_river/salinity/8.png
+2022-05-02 12:29:42,906 [INFO] Latest reading 2022-05-01 21:00:00
+2022-05-02 12:29:43,408 [INFO] public/clyde_river/salinity/9.png
+2022-05-02 12:29:43,409 [INFO] Latest reading 2022-05-01 22:00:00
+2022-05-02 12:29:43,913 [INFO] public/clyde_river/salinity/10.png
+2022-05-02 12:29:43,913 [INFO] Latest reading 2022-05-01 23:00:00
+2022-05-02 12:29:44,414 [INFO] public/clyde_river/salinity/11.png
+2022-05-02 12:29:44,414 [INFO] Latest reading 2022-05-02 00:00:00
+2022-05-02 12:29:44,916 [INFO] public/clyde_river/salinity/12.png
+2022-05-02 12:29:44,916 [INFO] Latest reading 2022-05-02 01:00:00
+2022-05-02 12:29:45,426 [INFO] public/clyde_river/salinity/13.png
+2022-05-02 12:29:45,426 [INFO] Latest reading 2022-05-02 02:00:00
+2022-05-02 12:29:45,965 [INFO] public/clyde_river/salinity/14.png
+2022-05-02 12:29:45,965 [INFO] Latest reading 2022-05-02 03:00:00
+2022-05-02 12:29:46,470 [INFO] public/clyde_river/salinity/15.png
+2022-05-02 12:29:46,470 [INFO] Latest reading 2022-05-02 04:00:00
+2022-05-02 12:29:46,983 [INFO] public/clyde_river/salinity/16.png
+2022-05-02 12:29:46,983 [INFO] Latest reading 2022-05-02 05:00:00
+2022-05-02 12:29:47,498 [INFO] public/clyde_river/salinity/17.png
+2022-05-02 12:29:47,499 [INFO] Latest reading 2022-05-02 06:00:00
+2022-05-02 12:29:48,008 [INFO] public/clyde_river/salinity/18.png
+2022-05-02 12:29:48,008 [INFO] Latest reading 2022-05-02 07:00:00
+2022-05-02 12:29:48,513 [INFO] public/clyde_river/salinity/19.png
+2022-05-02 12:29:48,513 [INFO] Latest reading 2022-05-02 08:00:00
+2022-05-02 12:29:49,038 [INFO] public/clyde_river/salinity/20.png
+2022-05-02 12:29:49,038 [INFO] Latest reading 2022-05-02 09:00:00
+2022-05-02 12:29:49,539 [INFO] public/clyde_river/salinity/21.png
+2022-05-02 12:29:49,539 [INFO] Latest reading 2022-05-02 10:00:00
+2022-05-02 12:29:50,041 [INFO] public/clyde_river/salinity/22.png
+2022-05-02 12:29:50,041 [INFO] Latest reading 2022-05-02 11:00:00
+2022-05-02 12:29:50,543 [INFO] public/clyde_river/salinity/23.png
+2022-05-02 12:29:50,543 [INFO] Latest reading 2022-05-02 12:00:00
+2022-05-02 12:29:51,041 [INFO] public/clyde_river/salinity/24.png
+2022-05-02 12:29:51,042 [INFO] Generating map of temperature
+2022-05-02 12:29:51,043 [INFO] Latest reading 2022-05-01 11:00:00
+2022-05-02 12:29:51,043 [INFO] Latest reading 2022-05-01 12:00:00
+2022-05-02 12:29:51,595 [INFO] public/clyde_river/temperature/0.png
+2022-05-02 12:29:51,595 [INFO] Latest reading 2022-05-01 13:00:00
+2022-05-02 12:29:52,092 [INFO] public/clyde_river/temperature/1.png
+2022-05-02 12:29:52,092 [INFO] Latest reading 2022-05-01 14:00:00
+2022-05-02 12:29:52,603 [INFO] public/clyde_river/temperature/2.png
+2022-05-02 12:29:52,603 [INFO] Latest reading 2022-05-01 15:00:00
+2022-05-02 12:29:53,103 [INFO] public/clyde_river/temperature/3.png
+2022-05-02 12:29:53,103 [INFO] Latest reading 2022-05-01 16:00:00
+2022-05-02 12:29:53,606 [INFO] public/clyde_river/temperature/4.png
+2022-05-02 12:29:53,607 [INFO] Latest reading 2022-05-01 17:00:00
+2022-05-02 12:29:54,117 [INFO] public/clyde_river/temperature/5.png
+2022-05-02 12:29:54,117 [INFO] Latest reading 2022-05-01 18:00:00
+2022-05-02 12:29:54,614 [INFO] public/clyde_river/temperature/6.png
+2022-05-02 12:29:54,614 [INFO] Latest reading 2022-05-01 19:00:00
+2022-05-02 12:29:55,136 [INFO] public/clyde_river/temperature/7.png
+2022-05-02 12:29:55,136 [INFO] Latest reading 2022-05-01 20:00:00
+2022-05-02 12:29:55,648 [INFO] public/clyde_river/temperature/8.png
+2022-05-02 12:29:55,648 [INFO] Latest reading 2022-05-01 21:00:00
+2022-05-02 12:29:56,157 [INFO] public/clyde_river/temperature/9.png
+2022-05-02 12:29:56,157 [INFO] Latest reading 2022-05-01 22:00:00
+2022-05-02 12:29:56,674 [INFO] public/clyde_river/temperature/10.png
+2022-05-02 12:29:56,674 [INFO] Latest reading 2022-05-01 23:00:00
+2022-05-02 12:29:57,229 [INFO] public/clyde_river/temperature/11.png
+2022-05-02 12:29:57,229 [INFO] Latest reading 2022-05-02 00:00:00
+2022-05-02 12:29:57,733 [INFO] public/clyde_river/temperature/12.png
+2022-05-02 12:29:57,733 [INFO] Latest reading 2022-05-02 01:00:00
+2022-05-02 12:29:58,241 [INFO] public/clyde_river/temperature/13.png
+2022-05-02 12:29:58,241 [INFO] Latest reading 2022-05-02 02:00:00
+2022-05-02 12:29:58,743 [INFO] public/clyde_river/temperature/14.png
+2022-05-02 12:29:58,743 [INFO] Latest reading 2022-05-02 03:00:00
+2022-05-02 12:29:59,235 [INFO] public/clyde_river/temperature/15.png
+2022-05-02 12:29:59,235 [INFO] Latest reading 2022-05-02 04:00:00
+2022-05-02 12:29:59,735 [INFO] public/clyde_river/temperature/16.png
+2022-05-02 12:29:59,735 [INFO] Latest reading 2022-05-02 05:00:00
+2022-05-02 12:30:00,238 [INFO] public/clyde_river/temperature/17.png
+2022-05-02 12:30:00,238 [INFO] Latest reading 2022-05-02 06:00:00
+2022-05-02 12:30:00,743 [INFO] public/clyde_river/temperature/18.png
+2022-05-02 12:30:00,744 [INFO] Latest reading 2022-05-02 07:00:00
+2022-05-02 12:30:01,272 [INFO] public/clyde_river/temperature/19.png
+2022-05-02 12:30:01,272 [INFO] Latest reading 2022-05-02 08:00:00
+2022-05-02 12:30:01,789 [INFO] public/clyde_river/temperature/20.png
+2022-05-02 12:30:01,789 [INFO] Latest reading 2022-05-02 09:00:00
+2022-05-02 12:30:02,311 [INFO] public/clyde_river/temperature/21.png
+2022-05-02 12:30:02,311 [INFO] Latest reading 2022-05-02 10:00:00
+2022-05-02 12:30:02,816 [INFO] public/clyde_river/temperature/22.png
+2022-05-02 12:30:02,816 [INFO] Latest reading 2022-05-02 11:00:00
+2022-05-02 12:30:03,334 [INFO] public/clyde_river/temperature/23.png
+2022-05-02 12:30:03,335 [INFO] Latest reading 2022-05-02 12:00:00
+2022-05-02 12:30:03,846 [INFO] public/clyde_river/temperature/24.png
+2022-05-02 12:31:15,949 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-02 12:31:15,950 [INFO] Listing harvest areas
+2022-05-02 12:31:15,950 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-02 12:31:16,055 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:31:16,164 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:31:16,286 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:31:16,408 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:31:17,571 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:31:17,708 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:31:17,842 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:31:17,976 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:31:25,287 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:31:25,446 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:31:25,578 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:31:25,724 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-02 12:31:25,854 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-02 12:31:26,030 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-02 12:31:26,189 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-02 12:31:29,437 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-02 12:31:32,613 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-02 12:31:32,744 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-02 12:31:32,905 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-02 12:31:33,136 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-02 12:31:33,285 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-02 12:31:33,408 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-02 12:31:33,460 [INFO] Generating map of salinity
+2022-05-02 12:31:33,462 [INFO] Latest reading 2022-05-01 11:00:00
+2022-05-02 12:31:33,463 [INFO] Latest reading 2022-05-01 12:00:00
+2022-05-02 12:31:34,050 [INFO] public/clyde_river/salinity/0.png
+2022-05-02 12:31:34,050 [INFO] Latest reading 2022-05-01 13:00:00
+2022-05-02 12:31:34,541 [INFO] public/clyde_river/salinity/1.png
+2022-05-02 12:31:34,541 [INFO] Latest reading 2022-05-01 14:00:00
+2022-05-02 12:31:35,031 [INFO] public/clyde_river/salinity/2.png
+2022-05-02 12:31:35,031 [INFO] Latest reading 2022-05-01 15:00:00
+2022-05-02 12:31:35,535 [INFO] public/clyde_river/salinity/3.png
+2022-05-02 12:31:35,535 [INFO] Latest reading 2022-05-01 16:00:00
+2022-05-02 12:31:36,027 [INFO] public/clyde_river/salinity/4.png
+2022-05-02 12:31:36,027 [INFO] Latest reading 2022-05-01 17:00:00
+2022-05-02 12:31:36,520 [INFO] public/clyde_river/salinity/5.png
+2022-05-02 12:31:36,520 [INFO] Latest reading 2022-05-01 18:00:00
+2022-05-02 12:31:37,012 [INFO] public/clyde_river/salinity/6.png
+2022-05-02 12:31:37,012 [INFO] Latest reading 2022-05-01 19:00:00
+2022-05-02 12:31:37,501 [INFO] public/clyde_river/salinity/7.png
+2022-05-02 12:31:37,501 [INFO] Latest reading 2022-05-01 20:00:00
+2022-05-02 12:31:38,002 [INFO] public/clyde_river/salinity/8.png
+2022-05-02 12:31:38,002 [INFO] Latest reading 2022-05-01 21:00:00
+2022-05-02 12:31:38,495 [INFO] public/clyde_river/salinity/9.png
+2022-05-02 12:31:38,496 [INFO] Latest reading 2022-05-01 22:00:00
+2022-05-02 12:31:38,989 [INFO] public/clyde_river/salinity/10.png
+2022-05-02 12:31:38,989 [INFO] Latest reading 2022-05-01 23:00:00
+2022-05-02 12:31:39,479 [INFO] public/clyde_river/salinity/11.png
+2022-05-02 12:31:39,479 [INFO] Latest reading 2022-05-02 00:00:00
+2022-05-02 12:31:39,972 [INFO] public/clyde_river/salinity/12.png
+2022-05-02 12:31:39,972 [INFO] Latest reading 2022-05-02 01:00:00
+2022-05-02 12:31:40,462 [INFO] public/clyde_river/salinity/13.png
+2022-05-02 12:31:40,462 [INFO] Latest reading 2022-05-02 02:00:00
+2022-05-02 12:31:40,980 [INFO] public/clyde_river/salinity/14.png
+2022-05-02 12:31:40,980 [INFO] Latest reading 2022-05-02 03:00:00
+2022-05-02 12:31:41,474 [INFO] public/clyde_river/salinity/15.png
+2022-05-02 12:31:41,474 [INFO] Latest reading 2022-05-02 04:00:00
+2022-05-02 12:31:41,963 [INFO] public/clyde_river/salinity/16.png
+2022-05-02 12:31:41,963 [INFO] Latest reading 2022-05-02 05:00:00
+2022-05-02 12:31:42,459 [INFO] public/clyde_river/salinity/17.png
+2022-05-02 12:31:42,459 [INFO] Latest reading 2022-05-02 06:00:00
+2022-05-02 12:31:42,946 [INFO] public/clyde_river/salinity/18.png
+2022-05-02 12:31:42,946 [INFO] Latest reading 2022-05-02 07:00:00
+2022-05-02 12:31:43,432 [INFO] public/clyde_river/salinity/19.png
+2022-05-02 12:31:43,432 [INFO] Latest reading 2022-05-02 08:00:00
+2022-05-02 12:31:43,929 [INFO] public/clyde_river/salinity/20.png
+2022-05-02 12:31:43,929 [INFO] Latest reading 2022-05-02 09:00:00
+2022-05-02 12:31:44,420 [INFO] public/clyde_river/salinity/21.png
+2022-05-02 12:31:44,421 [INFO] Latest reading 2022-05-02 10:00:00
+2022-05-02 12:31:44,911 [INFO] public/clyde_river/salinity/22.png
+2022-05-02 12:31:44,911 [INFO] Latest reading 2022-05-02 11:00:00
+2022-05-02 12:31:45,405 [INFO] public/clyde_river/salinity/23.png
+2022-05-02 12:31:45,405 [INFO] Latest reading 2022-05-02 12:00:00
+2022-05-02 12:31:45,899 [INFO] public/clyde_river/salinity/24.png
+2022-05-02 12:31:45,899 [INFO] Generating map of temperature
+2022-05-02 12:31:45,900 [INFO] Latest reading 2022-05-01 11:00:00
+2022-05-02 12:31:45,900 [INFO] Latest reading 2022-05-01 12:00:00
+2022-05-02 12:31:46,435 [INFO] public/clyde_river/temperature/0.png
+2022-05-02 12:31:46,435 [INFO] Latest reading 2022-05-01 13:00:00
+2022-05-02 12:31:46,928 [INFO] public/clyde_river/temperature/1.png
+2022-05-02 12:31:46,928 [INFO] Latest reading 2022-05-01 14:00:00
+2022-05-02 12:31:47,421 [INFO] public/clyde_river/temperature/2.png
+2022-05-02 12:31:47,421 [INFO] Latest reading 2022-05-01 15:00:00
+2022-05-02 12:31:47,916 [INFO] public/clyde_river/temperature/3.png
+2022-05-02 12:31:47,916 [INFO] Latest reading 2022-05-01 16:00:00
+2022-05-02 12:31:48,417 [INFO] public/clyde_river/temperature/4.png
+2022-05-02 12:31:48,418 [INFO] Latest reading 2022-05-01 17:00:00
+2022-05-02 12:31:48,929 [INFO] public/clyde_river/temperature/5.png
+2022-05-02 12:31:48,929 [INFO] Latest reading 2022-05-01 18:00:00
+2022-05-02 12:31:49,428 [INFO] public/clyde_river/temperature/6.png
+2022-05-02 12:31:49,429 [INFO] Latest reading 2022-05-01 19:00:00
+2022-05-02 12:31:49,932 [INFO] public/clyde_river/temperature/7.png
+2022-05-02 12:31:49,932 [INFO] Latest reading 2022-05-01 20:00:00
+2022-05-02 12:31:50,429 [INFO] public/clyde_river/temperature/8.png
+2022-05-02 12:31:50,430 [INFO] Latest reading 2022-05-01 21:00:00
+2022-05-02 12:31:50,926 [INFO] public/clyde_river/temperature/9.png
+2022-05-02 12:31:50,926 [INFO] Latest reading 2022-05-01 22:00:00
+2022-05-02 12:31:51,424 [INFO] public/clyde_river/temperature/10.png
+2022-05-02 12:31:51,424 [INFO] Latest reading 2022-05-01 23:00:00
+2022-05-02 12:31:51,997 [INFO] public/clyde_river/temperature/11.png
+2022-05-02 12:31:51,997 [INFO] Latest reading 2022-05-02 00:00:00
+2022-05-02 12:31:52,508 [INFO] public/clyde_river/temperature/12.png
+2022-05-02 12:31:52,509 [INFO] Latest reading 2022-05-02 01:00:00
+2022-05-02 12:31:53,012 [INFO] public/clyde_river/temperature/13.png
+2022-05-02 12:31:53,012 [INFO] Latest reading 2022-05-02 02:00:00
+2022-05-02 12:31:53,506 [INFO] public/clyde_river/temperature/14.png
+2022-05-02 12:31:53,507 [INFO] Latest reading 2022-05-02 03:00:00
+2022-05-02 12:31:54,003 [INFO] public/clyde_river/temperature/15.png
+2022-05-02 12:31:54,003 [INFO] Latest reading 2022-05-02 04:00:00
+2022-05-02 12:31:54,497 [INFO] public/clyde_river/temperature/16.png
+2022-05-02 12:31:54,497 [INFO] Latest reading 2022-05-02 05:00:00
+2022-05-02 12:31:54,995 [INFO] public/clyde_river/temperature/17.png
+2022-05-02 12:31:54,995 [INFO] Latest reading 2022-05-02 06:00:00
+2022-05-02 12:31:55,488 [INFO] public/clyde_river/temperature/18.png
+2022-05-02 12:31:55,488 [INFO] Latest reading 2022-05-02 07:00:00
+2022-05-02 12:31:55,995 [INFO] public/clyde_river/temperature/19.png
+2022-05-02 12:31:55,995 [INFO] Latest reading 2022-05-02 08:00:00
+2022-05-02 12:31:56,505 [INFO] public/clyde_river/temperature/20.png
+2022-05-02 12:31:56,505 [INFO] Latest reading 2022-05-02 09:00:00
+2022-05-02 12:31:57,006 [INFO] public/clyde_river/temperature/21.png
+2022-05-02 12:31:57,006 [INFO] Latest reading 2022-05-02 10:00:00
+2022-05-02 12:31:57,502 [INFO] public/clyde_river/temperature/22.png
+2022-05-02 12:31:57,502 [INFO] Latest reading 2022-05-02 11:00:00
+2022-05-02 12:31:58,004 [INFO] public/clyde_river/temperature/23.png
+2022-05-02 12:31:58,004 [INFO] Latest reading 2022-05-02 12:00:00
+2022-05-02 12:31:58,512 [INFO] public/clyde_river/temperature/24.png
+2022-05-05 19:57:12,412 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-05 19:57:12,413 [INFO] Listing harvest areas
+2022-05-05 19:57:12,413 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-05 19:57:12,593 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-05 19:57:12,742 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-05 19:57:12,921 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-05 19:57:12,929 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:12,952 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:12,953 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:12,954 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:13,126 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-05 19:57:14,377 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-05 19:57:14,558 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-05 19:57:14,702 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-05 19:57:14,876 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-05 19:57:15,051 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-05 19:57:15,234 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-05 19:57:15,393 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-05 19:57:15,573 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-05 19:57:15,754 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-05 19:57:15,993 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-05 19:57:16,177 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-05 19:57:38,260 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-05 19:57:38,261 [INFO] Listing harvest areas
+2022-05-05 19:57:38,261 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-05 19:57:38,423 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-05 19:57:38,558 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-05 19:57:38,724 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-05 19:57:38,732 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:38,733 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:38,734 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:38,735 [ERROR] Values not valid: division by zero
+2022-05-05 19:57:38,890 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-05 19:57:42,087 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-05 19:57:42,252 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-05 19:57:42,407 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-05 19:57:45,631 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-05 19:58:51,466 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-05 19:58:54,693 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-05 19:58:55,861 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-05 19:58:57,090 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-05 19:58:57,319 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-05 19:58:58,627 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-05 19:58:58,815 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-05 19:58:59,019 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-05 19:58:59,218 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-05 19:59:00,400 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-05 19:59:00,643 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-05 19:59:00,857 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-05 19:59:02,111 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-05 19:59:02,276 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-05 19:59:02,333 [INFO] Generating map of salinity
+2022-05-05 19:59:02,338 [INFO] Latest reading 2022-05-04 19:00:00
+2022-05-05 19:59:02,955 [INFO] public/clyde_river/salinity/0.png
+2022-05-05 19:59:02,956 [INFO] Latest reading 2022-05-04 20:00:00
+2022-05-05 19:59:03,480 [INFO] public/clyde_river/salinity/1.png
+2022-05-05 19:59:03,480 [INFO] Latest reading 2022-05-04 21:00:00
+2022-05-05 19:59:03,976 [INFO] public/clyde_river/salinity/2.png
+2022-05-05 19:59:03,976 [INFO] Latest reading 2022-05-04 22:00:00
+2022-05-05 19:59:04,508 [INFO] public/clyde_river/salinity/3.png
+2022-05-05 19:59:04,508 [INFO] Latest reading 2022-05-04 23:00:00
+2022-05-05 19:59:05,009 [INFO] public/clyde_river/salinity/4.png
+2022-05-05 19:59:05,009 [INFO] Latest reading 2022-05-05 00:00:00
+2022-05-05 19:59:05,512 [INFO] public/clyde_river/salinity/5.png
+2022-05-05 19:59:05,512 [INFO] Latest reading 2022-05-05 01:00:00
+2022-05-05 19:59:06,024 [INFO] public/clyde_river/salinity/6.png
+2022-05-05 19:59:06,024 [INFO] Latest reading 2022-05-05 02:00:00
+2022-05-05 19:59:06,523 [INFO] public/clyde_river/salinity/7.png
+2022-05-05 19:59:06,523 [INFO] Latest reading 2022-05-05 03:00:00
+2022-05-05 19:59:07,032 [INFO] public/clyde_river/salinity/8.png
+2022-05-05 19:59:07,032 [INFO] Latest reading 2022-05-05 04:00:00
+2022-05-05 19:59:07,532 [INFO] public/clyde_river/salinity/9.png
+2022-05-05 19:59:07,532 [INFO] Latest reading 2022-05-05 05:00:00
+2022-05-05 19:59:08,029 [INFO] public/clyde_river/salinity/10.png
+2022-05-05 19:59:08,029 [INFO] Latest reading 2022-05-05 06:00:00
+2022-05-05 19:59:08,530 [INFO] public/clyde_river/salinity/11.png
+2022-05-05 19:59:08,530 [INFO] Latest reading 2022-05-05 07:00:00
+2022-05-05 19:59:09,050 [INFO] public/clyde_river/salinity/12.png
+2022-05-05 19:59:09,050 [INFO] Latest reading 2022-05-05 08:00:00
+2022-05-05 19:59:09,554 [INFO] public/clyde_river/salinity/13.png
+2022-05-05 19:59:09,554 [INFO] Latest reading 2022-05-05 09:00:00
+2022-05-05 19:59:10,101 [INFO] public/clyde_river/salinity/14.png
+2022-05-05 19:59:10,101 [INFO] Latest reading 2022-05-05 10:00:00
+2022-05-05 19:59:10,609 [INFO] public/clyde_river/salinity/15.png
+2022-05-05 19:59:10,609 [INFO] Latest reading 2022-05-05 11:00:00
+2022-05-05 20:00:41,951 [INFO] Requesting all devices from cache cache/devices.json
+2022-05-05 20:00:41,951 [INFO] Listing harvest areas
+2022-05-05 20:00:41,951 [INFO] Getting latest values from Ubidots. Period = 1H
+2022-05-05 20:00:42,091 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-05 20:00:42,225 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-05 20:00:42,390 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-05 20:00:42,398 [ERROR] Values not valid: division by zero
+2022-05-05 20:00:42,398 [ERROR] Values not valid: division by zero
+2022-05-05 20:00:42,398 [ERROR] Values not valid: division by zero
+2022-05-05 20:00:42,398 [ERROR] Values not valid: division by zero
+2022-05-05 20:00:42,567 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-05 20:00:42,749 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-05 20:00:42,919 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-05 20:00:43,134 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-05 20:00:43,300 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-05 20:00:43,483 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-05 20:00:43,677 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-05 20:00:43,833 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-05 20:00:44,035 [INFO] Requested resampled data from Ubidots for Angry Man Point. Status code = 200
+2022-05-05 20:00:44,199 [INFO] Requested resampled data from Ubidots for Rocky Point. Status code = 200
+2022-05-05 20:00:44,370 [INFO] Requested resampled data from Ubidots for Waterfall Creek. Status code = 200
+2022-05-05 20:00:44,552 [INFO] Requested resampled data from Ubidots for Chinamans Point. Status code = 200
+2022-05-05 20:00:44,728 [INFO] Requested resampled data from Ubidots for Double Bay. Status code = 200
+2022-05-05 20:00:44,897 [INFO] Requested resampled data from Ubidots for Buckenbowra Creek. Status code = 200
+2022-05-05 20:00:45,053 [INFO] Requested resampled data from Ubidots for Big Island West. Status code = 200
+2022-05-05 20:00:45,226 [INFO] Requested resampled data from Ubidots for Wray Street. Status code = 200
+2022-05-05 20:00:45,404 [INFO] Requested resampled data from Ubidots for Moonlight. Status code = 200
+2022-05-05 20:00:45,577 [INFO] Requested resampled data from Ubidots for Snapper Point. Status code = 200
+2022-05-05 20:00:45,766 [INFO] Requested resampled data from Ubidots for Budd Island North. Status code = 200
+2022-05-05 20:00:45,800 [INFO] Generating map of salinity
+2022-05-05 20:00:45,802 [INFO] Latest reading 2022-05-04 19:00:00
+2022-05-05 20:00:46,401 [INFO] public/clyde_river/salinity/0.png
+2022-05-05 20:00:46,402 [INFO] Latest reading 2022-05-04 20:00:00
+2022-05-05 20:00:46,909 [INFO] public/clyde_river/salinity/1.png
+2022-05-05 20:00:46,910 [INFO] Latest reading 2022-05-04 21:00:00
+2022-05-05 20:00:47,412 [INFO] public/clyde_river/salinity/2.png
+2022-05-05 20:00:47,412 [INFO] Latest reading 2022-05-04 22:00:00
+2022-05-05 20:00:47,928 [INFO] public/clyde_river/salinity/3.png
+2022-05-05 20:00:47,928 [INFO] Latest reading 2022-05-04 23:00:00
+2022-05-05 20:00:48,432 [INFO] public/clyde_river/salinity/4.png
+2022-05-05 20:00:48,433 [INFO] Latest reading 2022-05-05 00:00:00
+2022-05-05 20:00:48,931 [INFO] public/clyde_river/salinity/5.png
+2022-05-05 20:00:48,952 [INFO] Latest reading 2022-05-05 01:00:00
+2022-05-05 20:00:49,466 [INFO] public/clyde_river/salinity/6.png
+2022-05-05 20:00:49,467 [INFO] Latest reading 2022-05-05 02:00:00
+2022-05-05 20:00:50,001 [INFO] public/clyde_river/salinity/7.png
+2022-05-05 20:00:50,001 [INFO] Latest reading 2022-05-05 03:00:00
+2022-05-05 20:00:50,516 [INFO] public/clyde_river/salinity/8.png
+2022-05-05 20:00:50,516 [INFO] Latest reading 2022-05-05 04:00:00
+2022-05-05 20:00:51,021 [INFO] public/clyde_river/salinity/9.png
+2022-05-05 20:00:51,021 [INFO] Latest reading 2022-05-05 05:00:00
+2022-05-05 20:00:51,528 [INFO] public/clyde_river/salinity/10.png
+2022-05-05 20:00:51,529 [INFO] Latest reading 2022-05-05 06:00:00
+2022-05-05 20:00:52,036 [INFO] public/clyde_river/salinity/11.png
+2022-05-05 20:00:52,036 [INFO] Latest reading 2022-05-05 07:00:00
+2022-05-05 20:00:52,538 [INFO] public/clyde_river/salinity/12.png
+2022-05-05 20:00:52,538 [INFO] Latest reading 2022-05-05 08:00:00
+2022-05-05 20:00:53,047 [INFO] public/clyde_river/salinity/13.png
+2022-05-05 20:00:53,048 [INFO] Latest reading 2022-05-05 09:00:00
+2022-05-05 20:00:53,588 [INFO] public/clyde_river/salinity/14.png
+2022-05-05 20:00:53,588 [INFO] Latest reading 2022-05-05 10:00:00
+2022-05-05 20:00:54,088 [INFO] public/clyde_river/salinity/15.png
+2022-05-05 20:00:54,088 [INFO] Latest reading 2022-05-05 11:00:00
+2022-05-05 20:00:54,615 [INFO] public/clyde_river/salinity/16.png
+2022-05-05 20:00:54,615 [INFO] Latest reading 2022-05-05 12:00:00
+2022-05-05 20:00:55,124 [INFO] public/clyde_river/salinity/17.png
+2022-05-05 20:00:55,125 [INFO] Latest reading 2022-05-05 13:00:00
+2022-05-05 20:00:55,632 [INFO] public/clyde_river/salinity/18.png
+2022-05-05 20:00:55,632 [INFO] Latest reading 2022-05-05 14:00:00
+2022-05-05 20:00:56,137 [INFO] public/clyde_river/salinity/19.png
+2022-05-05 20:00:56,137 [INFO] Latest reading 2022-05-05 15:00:00
+2022-05-05 20:00:56,644 [INFO] public/clyde_river/salinity/20.png
+2022-05-05 20:00:56,644 [INFO] Latest reading 2022-05-05 16:00:00
+2022-05-05 20:00:57,160 [INFO] public/clyde_river/salinity/21.png
+2022-05-05 20:00:57,161 [INFO] Latest reading 2022-05-05 17:00:00
+2022-05-05 20:00:57,664 [INFO] public/clyde_river/salinity/22.png
+2022-05-05 20:00:57,665 [INFO] Latest reading 2022-05-05 18:00:00
+2022-05-05 20:00:58,167 [INFO] public/clyde_river/salinity/23.png
+2022-05-05 20:00:58,167 [INFO] Latest reading 2022-05-05 19:00:00
+2022-05-05 20:00:58,678 [INFO] public/clyde_river/salinity/24.png
+2022-05-05 20:00:58,678 [INFO] Generating map of temperature
+2022-05-05 20:00:58,680 [INFO] Latest reading 2022-05-04 19:00:00
+2022-05-05 20:00:59,223 [INFO] public/clyde_river/temperature/0.png
+2022-05-05 20:00:59,223 [INFO] Latest reading 2022-05-04 20:00:00
+2022-05-05 20:00:59,728 [INFO] public/clyde_river/temperature/1.png
+2022-05-05 20:00:59,728 [INFO] Latest reading 2022-05-04 21:00:00
+2022-05-05 20:01:00,246 [INFO] public/clyde_river/temperature/2.png
+2022-05-05 20:01:00,247 [INFO] Latest reading 2022-05-04 22:00:00
+2022-05-05 20:01:00,747 [INFO] public/clyde_river/temperature/3.png
+2022-05-05 20:01:00,747 [INFO] Latest reading 2022-05-04 23:00:00
+2022-05-05 20:01:01,263 [INFO] public/clyde_river/temperature/4.png
+2022-05-05 20:01:01,264 [INFO] Latest reading 2022-05-05 00:00:00
+2022-05-05 20:01:01,765 [INFO] public/clyde_river/temperature/5.png
+2022-05-05 20:01:01,765 [INFO] Latest reading 2022-05-05 01:00:00
+2022-05-05 20:01:02,278 [INFO] public/clyde_river/temperature/6.png
+2022-05-05 20:01:02,278 [INFO] Latest reading 2022-05-05 02:00:00
+2022-05-05 20:01:02,778 [INFO] public/clyde_river/temperature/7.png
+2022-05-05 20:01:02,778 [INFO] Latest reading 2022-05-05 03:00:00
+2022-05-05 20:01:03,278 [INFO] public/clyde_river/temperature/8.png
+2022-05-05 20:01:03,278 [INFO] Latest reading 2022-05-05 04:00:00
+2022-05-05 20:01:03,781 [INFO] public/clyde_river/temperature/9.png
+2022-05-05 20:01:03,781 [INFO] Latest reading 2022-05-05 05:00:00
+2022-05-05 20:01:04,294 [INFO] public/clyde_river/temperature/10.png
+2022-05-05 20:01:04,294 [INFO] Latest reading 2022-05-05 06:00:00
+2022-05-05 20:01:04,857 [INFO] public/clyde_river/temperature/11.png
+2022-05-05 20:01:04,857 [INFO] Latest reading 2022-05-05 07:00:00
+2022-05-05 20:01:05,347 [INFO] public/clyde_river/temperature/12.png
+2022-05-05 20:01:05,348 [INFO] Latest reading 2022-05-05 08:00:00
+2022-05-05 20:01:05,840 [INFO] public/clyde_river/temperature/13.png
+2022-05-05 20:01:05,840 [INFO] Latest reading 2022-05-05 09:00:00
+2022-05-05 20:01:06,329 [INFO] public/clyde_river/temperature/14.png
+2022-05-05 20:01:06,329 [INFO] Latest reading 2022-05-05 10:00:00
+2022-05-05 20:01:06,822 [INFO] public/clyde_river/temperature/15.png
+2022-05-05 20:01:06,822 [INFO] Latest reading 2022-05-05 11:00:00
+2022-05-05 20:01:07,330 [INFO] public/clyde_river/temperature/16.png
+2022-05-05 20:01:07,330 [INFO] Latest reading 2022-05-05 12:00:00
+2022-05-05 20:01:07,842 [INFO] public/clyde_river/temperature/17.png
+2022-05-05 20:01:07,842 [INFO] Latest reading 2022-05-05 13:00:00
+2022-05-05 20:01:08,358 [INFO] public/clyde_river/temperature/18.png
+2022-05-05 20:01:08,358 [INFO] Latest reading 2022-05-05 14:00:00
+2022-05-05 20:01:08,870 [INFO] public/clyde_river/temperature/19.png
+2022-05-05 20:01:08,870 [INFO] Latest reading 2022-05-05 15:00:00
+2022-05-05 20:01:09,371 [INFO] public/clyde_river/temperature/20.png
+2022-05-05 20:01:09,371 [INFO] Latest reading 2022-05-05 16:00:00
+2022-05-05 20:01:09,870 [INFO] public/clyde_river/temperature/21.png
+2022-05-05 20:01:09,870 [INFO] Latest reading 2022-05-05 17:00:00
+2022-05-05 20:01:10,371 [INFO] public/clyde_river/temperature/22.png
+2022-05-05 20:01:10,371 [INFO] Latest reading 2022-05-05 18:00:00
+2022-05-05 20:01:10,875 [INFO] public/clyde_river/temperature/23.png
+2022-05-05 20:01:10,875 [INFO] Latest reading 2022-05-05 19:00:00
+2022-05-05 20:01:11,377 [INFO] public/clyde_river/temperature/24.png
