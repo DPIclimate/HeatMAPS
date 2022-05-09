@@ -185,7 +185,7 @@ class Map:
 
                 rbf_interp = Rbf(date_df["Longitude"], date_df["Latitude"],
                         date_df["Value"].values.astype(float), function="linear")
-                interpolation = rbf_interp(X, Y)
+                interpolation = rbf_interp(X, Y[::-1])
 
                 plt.rc('font', size=16) 
 

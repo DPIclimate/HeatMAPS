@@ -6,8 +6,8 @@
             "id": "620c3489a9683d1e8e12b5b8",
             "latitude": -35.70401397198996,
             "location": "Angry Man Point",
-            "longitude": -150.14713610588547,
-            "name": "clyde-salinity90f",
+            "longitude": 150.14713610588547,
+            "name": "Buoy 08 - Angry Man Pt.",
             "variables": {
                 "salinity": "620c34a036478d1df15fcd01",
                 "temperature": "620c34a236478d1df15fcd03"
@@ -121,10 +121,10 @@
             "api_label": "007f3b4dd80fc570",
             "harvest_area": "Moonlight",
             "id": "616e493a41ac9d039cfa39f6",
-            "latitude": -35.69605,
+            "latitude": -35.69604608826749,
             "location": "Snapper Point",
-            "longitude": 150.159375,
-            "name": "clyde-salinity90e",
+            "longitude": 150.15959171647617,
+            "name": "Buoy 05 - Snapper Pt. NW",
             "variables": {
                 "salinity": "616e493c810cbd03d916fa68",
                 "temperature": "616e493d810cbd03d916fa69"

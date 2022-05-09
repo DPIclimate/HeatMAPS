@@ -19,7 +19,7 @@
 			"buoy_number": "4"
 		},
 		{
-			"name": "clyde-salinity90e",
+			"name": "Buoy 05 - Snapper Pt. NW",
 			"location": "Snapper Point",
 			"harvest_area": "Moonlight",
 			"buoy_number": "5"
@@ -31,7 +31,7 @@
 			"buoy_number": "Fixed"
 		},
 		{
-			"name": "clyde-salinity90f",
+			"name": "Buoy 08 - Angry Man Pt.",
 			"location": "Angry Man Point",
 			"harvest_area": "Rocky Point",
 			"buoy_number": "8"
