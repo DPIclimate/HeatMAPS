@@ -180,7 +180,7 @@ class Map:
                 log.info(f"Latest reading {date[0]}")
 
                 # Don't worry about timestamps where less than 5 bouys reported readings (edge cases)
-                if len(date_df) < 5:
+                if len(date_df) < 8:
                     continue
 
                 rbf_interp = Rbf(date_df["Longitude"], date_df["Latitude"],
