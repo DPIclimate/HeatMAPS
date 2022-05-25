@@ -29,6 +29,7 @@ jobs:
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - run: sudo apt-get install libproj-dev -y
     - run: pip install shapely --no-binary shapely
+    - run: pip install --upgrade certifi
     - run: pip install -r requirements.txt && python main.py
     - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@4.1.7
