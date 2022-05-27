@@ -49,7 +49,7 @@ class Ubidots:
         # Get new device list from Ubidots and store in cache
         if not self.from_cache:
             log.info("Requesting all devices from Ubidots (not cache)")
-            url = "https://industrial.api.ubidots.com/api/v2.0/devices/"
+            url = "https://industrial.api.ubidots.com.au/api/v2.0/devices/"
             res = requests.get(url, headers={"X-Auth-Token": self.API_TOKEN})
             if res.status_code == 200:
                 with open(self.config, "r") as cf:
@@ -84,7 +84,7 @@ class Ubidots:
 
     def get_device_variables(self, device_id):
         log.info(f"Requesting device variables from Ubidots for ID: {device_id}")
-        url = f"https://industrial.api.ubidots.com/api/v2.0/devices/{device_id}/variables/"
+        url = f"https://industrial.api.ubidots.com.au/api/v2.0/devices/{device_id}/variables/"
         res = requests.get(url, headers={"X-Auth-Token": self.API_TOKEN})
         if res.status_code == 200:
             j_res = json.loads(res.text)
@@ -102,7 +102,7 @@ class Ubidots:
                 self.harvest_areas.append(device["harvest_area"])   
 
     def resample(self, body, device_name, lat, long, variable):
-        url = "https://industrial.api.ubidots.com/api/v1.6/data/stats/resample/"
+        url = "https://industrial.api.ubidots.com.au/api/v1.6/data/stats/resample/"
         res = requests.post(url, headers={"X-Auth-Token": self.API_TOKEN,
             "Content-Type": "application/json"}, json=body)
 
