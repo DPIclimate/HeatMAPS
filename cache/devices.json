@@ -27,19 +27,6 @@
             }
         },
         {
-            "api_label": "00bae39e66f3027d",
-            "harvest_area": "Moonlight",
-            "id": "61788ec3852f0902cbf87570",
-            "latitude": -35.69938089701878,
-            "location": "Wray Street",
-            "longitude": 150.17863187952915,
-            "name": "Buoy 01 - Wray Street",
-            "variables": {
-                "salinity": "61788ec4a73c3402b041fb61",
-                "temperature": "61788ec5dc917002aa2562e2"
-            }
-        },
-        {
             "api_label": "002b9353b22e2bdc",
             "harvest_area": "Rocky Point",
             "id": "61788eb7852f090308fc0973",
