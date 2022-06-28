@@ -28,16 +28,7 @@ jobs:
     - run: sudo apt-get install build-essential
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - name: Install Cmake
-      run: |
-        cd /opt
-        wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0.tar.gz
-        tar -xvzf cmake-3.23.0.tar.gz
-        rm cmake-3.23.0.tar.gz
-        cd cmake-3.23.0/
-        ./configure
-        make -s
-        make install -s
-        ln -s /opt/cmake-3.23.0/bin/* /usr/bin
+      run: sudo apt install -y cmake
     - name: Build PROJ
       run: |
         cd /opt
