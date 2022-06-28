@@ -25,12 +25,32 @@ jobs:
         architecture: 'x64'
         cache: 'pip'
     - run: sudo timedatectl set-timezone Australia/Sydney
-    - run: sudo apt-get install proj-bin
+    - run: sudo apt-get install build-essential
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
-    - run: sudo apt-get install libproj-dev -y
+    - name: Install Cmake
+      run: |
+        cd /opt
+        wget https://github.com/Kitware/CMake/releases/download/v3.23.0/cmake-3.23.0.tar.gz
+        tar -xvzf cmake-3.23.0.tar.gz
+        rm cmake-3.23.0.tar.gz
+        cd cmake-3.23.0/
+        ./configure
+        make -s
+        make install -s
+        ln -s /opt/cmake-3.23.0/bin/* /usr/bin
+    - name: Build PROJ
+      run: |
+        cd /opt
+        wget https://github.com/OSGeo/PROJ/releases/download/9.0.0/proj-9.0.0.tar.gz
+        tar -xvzf proj-9.0.0.tar.gz
+        rm proj-9.0.0.tar.gz
+        cd proj-9.0.0
+        mkdir build && cd build
+        cmake ..
+        cmake --build . --target install
     - run: pip install shapely --no-binary shapely
     - run: sudo update-ca-certificates
-    - run: pip install -r requirements.txt && python main.py
+    - run: cd ~ && pip install -r requirements.txt && python main.py
     - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
