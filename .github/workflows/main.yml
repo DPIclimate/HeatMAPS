@@ -33,7 +33,8 @@ jobs:
       run: sudo apt install -y cmake
     - name: Build PROJ
       run: sudo apt-get install proj-bin libproj-dev proj-data
-    - run: pip install shapely --no-binary shapely
+    - run: pip install shapely --no-binary shapely 
+    - run: pip install Cython
     - run: sudo update-ca-certificates
     - run: pip install -r requirements.txt && python main.py
     - name: Deploy to gh-pages
