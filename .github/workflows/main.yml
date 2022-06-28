@@ -27,20 +27,13 @@ jobs:
     - run: sudo apt-get update
     - run: sudo apt-get upgrade -y
     - run: sudo timedatectl set-timezone Australia/Sydney
-    - run: sudo apt-get install build-essential libssl-dev libjpeg-dev libpng-dev libcurl4-openssl-dev curl wget git make
+    - run: sudo apt-get install build-essential libssl-dev libjpeg-dev libpng-dev libcurl4-openssl-dev curl wget git make sqlite3 libsqlite3-dev
     - run: sudo apt install libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
     - name: Install Cmake
       run: sudo apt install -y cmake
     - name: Build PROJ
       run: |
-        cd /opt
-        wget https://github.com/OSGeo/PROJ/releases/download/9.0.0/proj-9.0.0.tar.gz
-        tar -xvzf proj-9.0.0.tar.gz
-        rm proj-9.0.0.tar.gz
-        cd proj-9.0.0
-        mkdir build && cd build
-        cmake ..
-        cmake --build . --target install
+        sudo apt-get install proj-bin libproj-dev proj-data
     - run: pip install shapely --no-binary shapely
     - run: sudo update-ca-certificates
     - run: cd ~ && pip install -r requirements.txt && python main.py
