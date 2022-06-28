@@ -32,11 +32,10 @@ jobs:
     - name: Install Cmake
       run: sudo apt install -y cmake
     - name: Build PROJ
-      run: |
-        sudo apt-get install proj-bin libproj-dev proj-data
+      run: sudo apt-get install proj-bin libproj-dev proj-data
     - run: pip install shapely --no-binary shapely
     - run: sudo update-ca-certificates
-    - run: cd ~ && pip install -r requirements.txt && python main.py
+    - run: pip install -r requirements.txt && python main.py
     - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
