@@ -29,8 +29,7 @@ jobs:
     - run: sudo timedatectl set-timezone Australia/Sydney
     - run: sudo apt-get install build-essential libssl-dev libjpeg-dev libpng-dev libcurl4-openssl-dev curl wget git make sqlite3 libsqlite3-dev
     - run: sudo apt-get install software-properties-common
-    - run: sudo add-apt-repository ppa:ubuntugis/ppa
-    - run: sudo apt install libgeos++-dev geos libgeos-c1v5 libgeos-dev libgeos-doc
+    - run: sudo apt install libgeos++-dev libgeos3.10.2 libgeos-c1v5 libgeos-dev libgeos-doc
     - name: Install Cmake
       run: sudo apt install -y cmake
     - name: Build PROJ
