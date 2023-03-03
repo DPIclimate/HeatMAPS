@@ -24,7 +24,7 @@ jobs:
         python-version: '3.8'
         architecture: 'x64'
         cache: 'pip'
-    - run: sudo apt install grub-efi-amd64-bin
+    - run: sudo apt-mark hold grub-efi-amd64-signed
     - run: sudo apt-get update
     - run: sudo apt-get upgrade -y
     - run: sudo timedatectl set-timezone Australia/Sydney
