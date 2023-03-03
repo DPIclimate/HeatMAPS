@@ -24,11 +24,8 @@ jobs:
         python-version: '3.8'
         architecture: 'x64'
         cache: 'pip'
+    - run: sudo apt install grub-efi-amd64-bin
     - run: sudo apt-get update
-    - run: sudo apt-get purge grub\*
-    - run: sudo apt-get install grub-efi
-    - run: sudo apt-get autoremove
-    - run: sudo update-grub
     - run: sudo apt-get upgrade -y
     - run: sudo timedatectl set-timezone Australia/Sydney
     - run: sudo apt-get install build-essential libssl-dev libjpeg-dev libpng-dev libcurl4-openssl-dev curl wget git make sqlite3 libsqlite3-dev
